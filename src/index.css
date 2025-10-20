@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Zerodha-inspired color palette */
+    --background: 0 0% 98%;
+    --foreground: 215 25% 27%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 27%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 27%;
+
+    /* Primary - Zerodha Blue */
+    --primary: 211 90% 52%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 211 90% 60%;
+    --primary-dark: 211 90% 45%;
+
+    /* Secondary - Calm Gray */
+    --secondary: 210 17% 95%;
+    --secondary-foreground: 215 25% 27%;
+
+    /* Muted - Subtle backgrounds */
+    --muted: 210 17% 95%;
+    --muted-foreground: 215 15% 50%;
+
+    /* Accent - Tech teal */
+    --accent: 189 85% 48%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 15% 88%;
+    --input: 214 15% 88%;
+    --ring: 211 90% 52%;
+
+    --radius: 0.75rem;
+
+    /* Custom design tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(211 90% 52%) 0%, hsl(189 85% 48%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(210 17% 98%) 100%);
+    --gradient-overlay: linear-gradient(135deg, hsl(211 90% 52% / 0.05) 0%, hsl(189 85% 48% / 0.05) 100%);
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(215 25% 27% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(215 25% 27% / 0.08), 0 2px 4px -1px hsl(215 25% 27% / 0.04);
+    --shadow-lg: 0 10px 15px -3px hsl(215 25% 27% / 0.08), 0 4px 6px -2px hsl(215 25% 27% / 0.04);
+    --shadow-xl: 0 20px 25px -5px hsl(215 25% 27% / 0.08), 0 10px 10px -5px hsl(215 25% 27% / 0.04);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --background: 215 28% 10%;
+    --foreground: 210 20% 92%;
+
+    --card: 215 28% 12%;
+    --card-foreground: 210 20% 92%;
+
+    --popover: 215 28% 12%;
+    --popover-foreground: 210 20% 92%;
+
+    --primary: 211 90% 58%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 211 90% 65%;
+    --primary-dark: 211 90% 50%;
+
+    --secondary: 215 25% 20%;
+    --secondary-foreground: 210 20% 92%;
+
+    --muted: 215 25% 20%;
+    --muted-foreground: 215 15% 60%;
+
+    --accent: 189 85% 52%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 25% 25%;
+    --input: 215 25% 25%;
+    --ring: 211 90% 58%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(211 90% 58%) 0%, hsl(189 85% 52%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(215 28% 12%) 0%, hsl(215 28% 10%) 100%);
+    --gradient-overlay: linear-gradient(135deg, hsl(211 90% 58% / 0.1) 0%, hsl(189 85% 52% / 0.1) 100%);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/20 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/30;
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-subtle {
+    background: var(--gradient-subtle);
+  }
+
+  .gradient-overlay {
+    background: var(--gradient-overlay);
+  }
+
+  .shadow-elegant {
+    box-shadow: var(--shadow-lg);
+  }
+
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-fast {
+    transition: var(--transition-fast);
+  }
+}
