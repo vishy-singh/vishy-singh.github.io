@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -13,6 +14,8 @@ const Contact = () => {
     email: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
 
   const contactInfo = [
     {
@@ -49,7 +52,7 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Basic validation
     if (!formData.name || !formData.email || !formData.message) {
       toast({
@@ -71,14 +74,28 @@ const Contact = () => {
       return;
     }
 
-    // In a real application, you would send this to a backend
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
-    });
+    setIsSubmitting(true);
 
-    // Reset form
-    setFormData({ name: "", email: "", message: "" });
+    // ⚡ Send email asynchronously
+    processFormData(formData)
+        .then(() => {
+          toast({
+            title: "Message Sent!",
+            description: "Thank you for reaching out. I'll get back to you soon.",
+          });
+          setFormData({ name: "", email: "", message: "" });
+        })
+        .catch((error) => {
+          console.error("Failed to send email:", error);
+          toast({
+            title: "Failed to Send Message",
+            description: "Something went wrong. Please try again later.",
+            variant: "destructive",
+          });
+        })
+        .finally(() => {
+          setIsSubmitting(false);
+        });
   };
 
   const handleChange = (
@@ -88,6 +105,27 @@ const Contact = () => {
       ...prev,
       [e.target.name]: e.target.value,
     }));
+  };
+
+  /**
+   * @description Dummy function to handle the form data.
+   * This is where you can add your logic to send the data to a backend.
+   * @param {object} data The form data collected from the user.
+   */
+  const processFormData = (data) => {
+    // Map your form data to the EmailJS template variables
+    const templateParams = {
+      from_name: data.name,
+      from_email: data.email,
+      message: data.message,
+    };
+
+    const serviceID = 'service_irg2tqs';
+    const templateID = 'template_bn2gokc';
+    const publicKey = 'P3AEzbFLAgiLPNdtE';
+
+    // This returns a promise which we will handle in handleSubmit
+    return emailjs.send(serviceID, templateID, templateParams, publicKey);
   };
 
   return (
