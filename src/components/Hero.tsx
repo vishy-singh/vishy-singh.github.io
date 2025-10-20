@@ -14,25 +14,25 @@ const Hero = () => {
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Background gradient overlay */}
       <div className="absolute inset-0 gradient-overlay opacity-50" />
-      
+
       <div className="container mx-auto px-6 py-24 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left: Text Content */}
           <div className="space-y-6 animate-fade-in">
             <div className="inline-block px-4 py-2 bg-primary/10 rounded-full text-primary font-medium text-sm">
-              Backend Developer & Scrum Master
+              Developer & Scrum Master
             </div>
-            
+
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
               Hi, I'm{" "}
-              <span className="gradient-primary bg-clip-text text-transparent">
-                Vishwajeet Pratap Singh
+              <span className="gradient-primary bg-clip-text text-card">
+               Vishwajeet Pratap Singh
               </span>
             </h1>
-            
+
             <p className="text-lg text-muted-foreground max-w-2xl">
-              A backend developer specializing in Java and Spring ecosystem, delivering 
-              enterprise-grade solutions with expertise in microservices architecture, 
+              A backend developer specializing in Java and Spring ecosystem, delivering
+              enterprise-grade solutions with expertise in microservices architecture,
               secure data processing, and scalable system design.
             </p>
 
@@ -93,7 +93,7 @@ const Hero = () => {
             <div className="relative">
               {/* Decorative elements */}
               <div className="absolute inset-0 gradient-primary rounded-full blur-3xl opacity-20 animate-pulse" />
-              
+
               <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-primary/20 shadow-xl">
                 <img
                   src={profileImage}
