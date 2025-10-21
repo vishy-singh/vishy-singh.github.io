@@ -31,11 +31,13 @@ const About = () => {
         <div className="max-w-3xl mx-auto text-center mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
           <div className="h-1 w-20 gradient-primary mx-auto mb-8" />
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            I'm a passionate backend developer with a strong focus on building robust, 
-            scalable enterprise solutions. Currently working at Maya Data Privacy Limited, 
-            I specialize in creating distributed microservices, implementing secure data 
-            processing pipelines, and optimizing system performance.
+          <p className="text-lg text-muted-foreground leading-relaxed text-justify ">
+            Software Developer (Java, Spring Boot) with 2 yrs of experience architecting distributed microservices and
+            high-performance data pipelines at enterprise scale, processing 100B+ records.
+            Proven track record of cutting processing times from days to minutes, securing sensitive PII,
+            and delivering resilient APIs for compliance-critical workloads.
+            Skilled in platform adoption, mentoring peers, and implementing best practices in backend engineering,
+            with expertise in Spring Boot, microservices, REST APIs, and enterprise security frameworks.
           </p>
         </div>
 
@@ -70,11 +72,11 @@ const About = () => {
                 <p className="text-muted-foreground">B.Tech Graduate, 2023</p>
               </div>
             </div>
-            <p className="text-muted-foreground leading-relaxed">
-              Strong academic foundation in computer science and engineering, complemented 
-              by hands-on experience in building production-grade applications. My education 
-              provided me with fundamental knowledge in algorithms, data structures, and 
-              software engineering principles that I apply daily in my work.
+            <p className="text-muted-foreground leading-relaxed text-justify">
+              Strong foundation in engineering principles,
+              reinforced through hands-on experience in building production-grade applications.
+              Gained in-depth knowledge of algorithms, data structures, and software engineering concepts,
+              which underpin practical problem-solving in real-world projects.
             </p>
           </Card>
         </div>
