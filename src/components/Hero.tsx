@@ -31,10 +31,10 @@ const Hero = () => {
                             </span>
                         </h1>
 
-                        <p className="text-lg text-muted-foreground max-w-2xl">
-                            A backend developer specializing in Java and Spring ecosystem, delivering
-                            enterprise-grade solutions with expertise in microservices architecture,
-                            secure data processing, and scalable system design.
+                        <p className="text-base text-muted-foreground max-w-2xl font-bold">
+                            Software Developer specializing in the Java and Spring ecosystem,
+                            crafting enterprise-grade, secure, and scalable systems with a focus on microservices architecture,
+                            secure data pipelines, and high-throughput solutions.
                         </p>
 
                         <div className="flex flex-wrap gap-4 pt-4">

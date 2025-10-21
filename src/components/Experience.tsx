@@ -4,27 +4,28 @@ import { Card } from "@/components/ui/card";
 const Experience = () => {
   const experiences = [
     {
-      title: "Software Engineer",
+      title: "SDE-1",
       company: "Maya Data Privacy Limited",
       period: "Apr 2024 – Present",
       achievements: [
-        "Developed distributed microservices pipeline processing 1M+ records daily with 40% faster processing times",
-        "Built anonymization framework for SAP HANA with data masking and encryption capabilities",
-        "Architected scalable authentication platform supporting 10,000+ concurrent users with JWT and RBAC",
-        "Implemented observability using Prometheus and Grafana for real-time system monitoring",
-        "Designed REST API service with standardized endpoints, reducing integration time by 30%",
-        "Created secure license validation system using RSA encryption and digital signatures",
+        "Cut SAP S4 database processing time from 48h to 35m by architecting a distributed microservices pipeline (Java, Spring Boot) with concurrent execution across 25+ tables.",
+        "Improved system throughput by 90%, enabling enterprise clients to complete compliance-critical jobs in minutes instead of days.",
+        "Engineered a high-performance anonymization and custom hashing framework for IPs/URLs, adopted across all microservices to securely process 5B+ records without collisions.",
+        "Designed a multi-layer authentication platform (JWT, RBAC, CAPTCHA, 2FA) that blocked 95%+ unauthorized access attempts across multiple enterprise deployments.",
+        "Built scalable REST APIs for schema scanning and PII detection, automating analysis of 500K+ database tables and cutting manual effort by 95%.",
+        "Developed backup, restore, and condition-based data cleaning APIs with sub-second latency on 100B+ records, strengthening enterprise disaster recovery SLAs.",
+        "Implemented a license validation system using RSA encryption and digital signatures, achieving 100% compliance and eliminating piracy in enterprise rollouts.",
+        "Integrated observability stack (Spring Boot Actuator, Prometheus, Grafana), reducing alert response times by 30% and enabling proactive monitoring across all microservices."
       ],
     },
     {
-      title: "Software Engineer Intern",
+      title: "SDE Intern",
       company: "Maya Data Privacy Limited",
       period: "Dec 2023 – Mar 2024",
       achievements: [
-        "Enhanced data anonymization platform with dynamic column-level transformations",
-        "Optimized backend data pipeline reducing processing time by 25%",
-        "Strengthened authentication security with OTP-based 2FA reducing unauthorized access by 95%",
-        "Implemented comprehensive API testing with Postman for improved reliability",
+        "Improved data anonymization accuracy by 20% by redesigning classification logic in Spring Boot.",
+        "Enhanced backend pipelines for IBAN and credit card detection, boosting throughput for millions of records.",
+        "Strengthened security of user flows by implementing two-step verification (CAPTCHA + OTP) in Spring Security for password resets."
       ],
     },
   ];
