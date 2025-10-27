@@ -47,7 +47,7 @@ const Navigation = () => {
             }}
             className="text-xl font-bold text-foreground hover:text-primary transition-fast"
           >
-            Vishwajeet Singh
+            Vishwajeet Pratap Singh
           </a>
 
           {/* Desktop Navigation */}
