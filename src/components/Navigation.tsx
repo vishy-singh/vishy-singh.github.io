@@ -85,33 +85,43 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 animate-fade-in">
-            <div className="flex flex-col space-y-4">
-              {navItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection(item.href);
-                  }}
-                  className="text-sm font-medium text-foreground hover:text-primary transition-fast px-4 py-2"
+            <div
+                className="fixed inset-0 z-40 bg-white/90 backdrop-blur-md shadow-md md:hidden animate-fade-in"
+            >
+              <div className="flex justify-between items-center px-6 py-4 border-b">
+                <span className="text-lg font-semibold">Vishwajeet Singh</span>
+                <button
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="p-2 text-foreground hover:text-primary transition-fast"
                 >
-                  {item.name}
-                </a>
-              ))}
-              <div className="px-4">
+                  <X size={24} />
+                </button>
+              </div>
+
+              <div className="flex flex-col space-y-4 p-6">
+                {navItems.map((item) => (
+                    <a
+                        key={item.name}
+                        href={item.href}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          scrollToSection(item.href);
+                        }}
+                        className="text-base font-medium text-foreground hover:text-primary transition-fast"
+                    >
+                      {item.name}
+                    </a>
+                ))}
                 <Button
-                  variant="hero"
-                  size="sm"
-                  className="w-full"
-                  onClick={() => scrollToSection("#contact")}
+                    variant="hero"
+                    size="sm"
+                    className="mt-4 w-full"
+                    onClick={() => scrollToSection("#contact")}
                 >
                   Get In Touch
                 </Button>
               </div>
             </div>
-          </div>
         )}
       </div>
     </nav>
