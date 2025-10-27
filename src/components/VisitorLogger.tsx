@@ -50,9 +50,8 @@ const VisitorLogger = () => {
 
                 // 6️⃣ Send the email
                 await emailjs.send(serviceID, templateID, visitorData, publicKey);
-                console.log("✅ Visitor log email sent successfully");
             } catch (err) {
-                console.warn("❌ Visitor logging failed:", err);
+                console.warn("Visitor logging failed:", err);
             }
         }
 
