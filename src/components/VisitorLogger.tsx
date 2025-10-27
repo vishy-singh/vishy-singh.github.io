@@ -40,11 +40,7 @@ const VisitorLogger = () => {
             }
         }
 
-        // Optional: run only once per visitor
-        if (!localStorage.getItem("visitor_logged")) {
-            logVisitor();
-            localStorage.setItem("visitor_logged", "true");
-        }
+        logVisitor();
     }, []);
 
     return null;
