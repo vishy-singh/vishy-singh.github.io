@@ -230,7 +230,7 @@ const Contact = () => {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="Tell me about your project..."
+                  placeholder="write your message..."
                   rows={5}
                   className="w-full"
                 />
