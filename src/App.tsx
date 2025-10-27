@@ -35,7 +35,7 @@ const App = () => (
             }}
         >
           <p>
-            This site collects basic public visitor info (IP, country, device
+            This site collects basic public info (country, device
             type) for analytics and security purposes. No personal or private data
             is stored.
           </p>
