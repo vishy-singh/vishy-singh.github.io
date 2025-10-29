@@ -31,7 +31,7 @@ const About = () => {
         <div className="max-w-3xl mx-auto text-center mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
           <div className="h-1 w-20 gradient-primary mx-auto mb-8" />
-          <p className="text-lg text-muted-foreground leading-relaxed text-justify ">
+          <p className="text-lg text-muted-foreground leading-relaxed">
             Software Developer (Java, Spring Boot) with 2 yrs of experience architecting distributed microservices and
             high-performance data pipelines at enterprise scale, processing 100B+ records.
             Proven track record of cutting processing times from days to minutes, securing sensitive PII,
