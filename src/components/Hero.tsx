@@ -21,7 +21,7 @@ const Hero = () => {
                     <div className="space-y-6 animate-fade-in">
                         <div
                             className="inline-block px-4 py-2 bg-primary/10 rounded-full text-primary font-medium text-sm">
-                            Developer & Scrum Master
+                            Software Engineer
                         </div>
 
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
@@ -33,7 +33,8 @@ const Hero = () => {
 
                         <p className="text-base text-muted-foreground max-w-2xl font-bold">
                             Software Developer specializing in the Java and Spring ecosystem,
-                            crafting enterprise-grade, secure, and scalable systems with a focus on microservices architecture,
+                            crafting enterprise-grade, secure, and scalable systems with a focus on microservices
+                            architecture,
                             secure data pipelines, and high-throughput solutions.
                         </p>
 
