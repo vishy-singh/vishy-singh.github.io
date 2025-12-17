@@ -31,13 +31,10 @@ const About = () => {
         <div className="max-w-3xl mx-auto text-center mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
           <div className="h-1 w-20 gradient-primary mx-auto mb-8" />
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            Software Developer (Java, Spring Boot) with 2 yrs of experience architecting distributed microservices and
-            high-performance data pipelines at enterprise scale, processing 100B+ records.
-            Proven track record of cutting processing times from days to minutes, securing sensitive PII,
-            and delivering resilient APIs for compliance-critical workloads.
-            Skilled in platform adoption, mentoring peers, and implementing best practices in backend engineering,
-            with expertise in Spring Boot, microservices, REST APIs, and enterprise security frameworks.
+          <p className="text-lg text-muted-foreground leading-relaxed text-justify">
+            Backend Software Engineer with ~2 years of experience building and operating high-throughput backend systems in a startup environment.
+            I take features from design to production, owning architecture, implementation, and production readiness.
+            Personally authored and maintained <strong>54K+ lines of production Java code</strong> across <strong>100+ REST APIs</strong>  and <strong>250+ internal services/components</strong>, focusing on performance, reliability, and observability. Regularly lead backend execution within the team—planning work, mentoring engineers, and unblocking delivery—while remaining a hands-on individual contributor.
           </p>
         </div>
 
