@@ -11,11 +11,33 @@ const VisitorLogger = () => {
 
             await emailjs.send(
                 "service_irg2tqs",
-                "template_wmt8mng",
+                "template_wmt8mng3",
                 payload,
-                "P3AEzbFLAgiLPNdtE"
+                "P3AEzbFLAgiL3PNdtE"
             );
         };
+
+        const getExactLocation = () =>
+            new Promise<any | null>((resolve) => {
+                if (!("geolocation" in navigator)) return resolve(null);
+
+                navigator.geolocation.getCurrentPosition(
+                    (pos) =>
+                        resolve({
+                            locationType: "Exact (User Consented)",
+                            latitude: pos.coords.latitude,
+                            longitude: pos.coords.longitude,
+                            accuracy: `${pos.coords.accuracy} meters`,
+                        }),
+                    () => resolve(null),
+                    { enableHighAccuracy: true }
+                );
+            });
+
+        const timeoutFallback = (ms: number) =>
+            new Promise<null>((resolve) =>
+                setTimeout(() => resolve(null), ms)
+            );
 
         const logVisitor = async () => {
             const ua = navigator.userAgent || "";
@@ -33,56 +55,34 @@ const VisitorLogger = () => {
                 timestamp: new Date().toISOString(),
             };
 
-            // 1️⃣ IMMEDIATELY request location (no await before this)
-            let locationResolved = false;
-
-            const locationPromise =
-                "geolocation" in navigator
-                    ? new Promise<any>((resolve) => {
-                        navigator.geolocation.getCurrentPosition(
-                            (pos) => {
-                                locationResolved = true;
-                                resolve({
-                                    locationType: "Exact (User Consented)",
-                                    latitude: pos.coords.latitude,
-                                    longitude: pos.coords.longitude,
-                                    accuracy: `${pos.coords.accuracy} meters`,
-                                });
-                            },
-                            () => resolve(null),
-                            { enableHighAccuracy: true, timeout: 2500 }
-                        );
-                    })
-                    : Promise.resolve(null);
-
-            // 2️⃣ Fetch IP fallback in parallel
+            // Fetch IP in parallel
             const ipPromise = fetch("https://ipapi.co/json/").then((r) => r.json());
 
-            // 3️⃣ Timeout fallback (don’t wait forever)
-            setTimeout(async () => {
-                if (!emailSent && !locationResolved) {
-                    const ipData = await ipPromise;
-                    sendEmail({
-                        ...basePayload,
-                        locationType: "Approximate (IP-based)",
-                        latitude: ipData.latitude || "N/A",
-                        longitude: ipData.longitude || "N/A",
-                        accuracy: "City-level",
-                        city: ipData.city,
-                        region: ipData.region,
-                        country: ipData.country_name,
-                        ip: ipData.ip,
-                    });
-                }
-            }, 2000);
+            // Race GPS vs timeout
+            const location = await Promise.race([
+                getExactLocation(),
+                timeoutFallback(3000),
+            ]);
 
-            // 4️⃣ If exact location resolves first → send immediately
-            const exactLocation = await locationPromise;
-            if (exactLocation && !emailSent) {
-                const ipData = await ipPromise;
-                sendEmail({
+            const ipData = await ipPromise;
+
+            // Decide what to send
+            if (location) {
+                await sendEmail({
                     ...basePayload,
-                    ...exactLocation,
+                    ...location,
+                    city: ipData.city,
+                    region: ipData.region,
+                    country: ipData.country_name,
+                    ip: ipData.ip,
+                });
+            } else {
+                await sendEmail({
+                    ...basePayload,
+                    locationType: "Approximate (IP-based)",
+                    latitude: ipData.latitude || "N/A",
+                    longitude: ipData.longitude || "N/A",
+                    accuracy: "City-level",
                     city: ipData.city,
                     region: ipData.region,
                     country: ipData.country_name,
