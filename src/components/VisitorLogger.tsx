@@ -11,9 +11,9 @@ const VisitorLogger = () => {
 
             await emailjs.send(
                 "service_irg2tqs",
-                "template_wmt8mng3",
+                "template_wmt8mng",
                 payload,
-                "P3AEzbFLAgiL3PNdtE"
+                "P3AEzbFLAgiLPNdtE"
             );
         };
 
