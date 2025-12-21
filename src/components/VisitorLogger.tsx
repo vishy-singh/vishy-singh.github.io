@@ -3,42 +3,93 @@ import emailjs from "@emailjs/browser";
 
 const VisitorLogger = () => {
     useEffect(() => {
-        async function logVisitor() {
-            try {
-                // 1️⃣ Fetch full IP data
-                const res = await fetch("https://ipapi.co/json/");
-                const ipData = await res.json();
+        let emailSent = false;
 
-                // 2️⃣ Detect device type
-                const ua = navigator.userAgent || "";
-                let deviceType = "Desktop";
-                if (/Mobi|Android|iPhone|iPad|iPod/i.test(ua)) deviceType = "Mobile";
-                else if (/Tablet|iPad/i.test(ua)) deviceType = "Tablet";
+        const sendEmail = async (payload: any) => {
+            if (emailSent) return;
+            emailSent = true;
 
-                // 3️⃣ Build template params (all fields merged)
-                const templateParams = {
-                    ...ipData, // includes all API fields
-                    deviceType,
-                    platform: navigator.platform,
-                    screen: `${window.screen.width}x${window.screen.height}`,
-                    ua,
-                    url: window.location.href,
-                    referrer: document.referrer || "Direct",
-                    timestamp: new Date().toISOString(),
-                    subject: "🌍 New Visitor on Portfolio",
-                };
+            await emailjs.send(
+                "service_irg2tqs",
+                "template_wmt8mng",
+                payload,
+                "P3AEzbFLAgiLPNdtE"
+            );
+        };
 
-                // 4️⃣ EmailJS credentials
-                const serviceID = "service_irg2tqs";
-                const templateID = "template_wmt8mng";
-                const publicKey = "P3AEzbFLAgiLPNdtE";
+        const logVisitor = async () => {
+            const ua = navigator.userAgent || "";
+            const deviceType = /Mobi|Android|iPhone|iPad|iPod/i.test(ua)
+                ? "Mobile"
+                : "Desktop";
 
-                // 5️⃣ Send the email
-                await emailjs.send(serviceID, templateID, templateParams, publicKey);
-            } catch (err) {
-                console.warn("logging failed:", err);
+            const basePayload = {
+                deviceType,
+                platform: navigator.platform,
+                screen: `${window.screen.width}x${window.screen.height}`,
+                userAgent: ua,
+                url: window.location.href,
+                referrer: document.referrer || "Direct",
+                timestamp: new Date().toISOString(),
+            };
+
+            // 1️⃣ IMMEDIATELY request location (no await before this)
+            let locationResolved = false;
+
+            const locationPromise =
+                "geolocation" in navigator
+                    ? new Promise<any>((resolve) => {
+                        navigator.geolocation.getCurrentPosition(
+                            (pos) => {
+                                locationResolved = true;
+                                resolve({
+                                    locationType: "Exact (User Consented)",
+                                    latitude: pos.coords.latitude,
+                                    longitude: pos.coords.longitude,
+                                    accuracy: `${pos.coords.accuracy} meters`,
+                                });
+                            },
+                            () => resolve(null),
+                            { enableHighAccuracy: true, timeout: 2500 }
+                        );
+                    })
+                    : Promise.resolve(null);
+
+            // 2️⃣ Fetch IP fallback in parallel
+            const ipPromise = fetch("https://ipapi.co/json/").then((r) => r.json());
+
+            // 3️⃣ Timeout fallback (don’t wait forever)
+            setTimeout(async () => {
+                if (!emailSent && !locationResolved) {
+                    const ipData = await ipPromise;
+                    sendEmail({
+                        ...basePayload,
+                        locationType: "Approximate (IP-based)",
+                        latitude: ipData.latitude || "N/A",
+                        longitude: ipData.longitude || "N/A",
+                        accuracy: "City-level",
+                        city: ipData.city,
+                        region: ipData.region,
+                        country: ipData.country_name,
+                        ip: ipData.ip,
+                    });
+                }
+            }, 2000);
+
+            // 4️⃣ If exact location resolves first → send immediately
+            const exactLocation = await locationPromise;
+            if (exactLocation && !emailSent) {
+                const ipData = await ipPromise;
+                sendEmail({
+                    ...basePayload,
+                    ...exactLocation,
+                    city: ipData.city,
+                    region: ipData.region,
+                    country: ipData.country_name,
+                    ip: ipData.ip,
+                });
             }
-        }
+        };
 
         logVisitor();
     }, []);

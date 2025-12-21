@@ -2,42 +2,43 @@ import { Server, Database, Lock, Zap, Cloud, Code2 } from "lucide-react";
 import { Card } from "@/components/ui/card";
 
 const Services = () => {
+
   const services = [
     {
       icon: Server,
-      title: "Microservices Architecture",
+      title: "Backend System Design",
       description:
-        "Design and implement scalable microservices using Spring Boot, ensuring high availability and fault tolerance for enterprise applications.",
+          "Design and build backend systems using Java and Spring Boot, focusing on clean architecture, service boundaries, and long-term maintainability in real production environments.",
     },
     {
       icon: Database,
-      title: "Database Design & Optimization",
+      title: "Large-Scale Data Processing",
       description:
-        "Expert in PostgreSQL, Oracle, and SAP HANA with focus on query optimization, data modeling, and performance tuning for large-scale systems.",
-    },
-    {
-      icon: Lock,
-      title: "Security Implementation",
-      description:
-        "Implement robust authentication and authorization using JWT, RBAC, 2FA, and encryption to ensure data protection and secure access control.",
+          "Work with large schemas and data-heavy systems, handling batch and concurrent processing, schema-wide analysis, and performance optimisation across PostgreSQL, Oracle, and SAP HANA.",
     },
     {
       icon: Zap,
-      title: "Performance Optimization",
+      title: "Performance & Scalability",
       description:
-        "Analyze and optimize backend systems for improved throughput, reduced latency, and efficient resource utilization in production environments.",
+          "Identify bottlenecks in backend workflows and redesign processing pipelines using concurrency, sampling, and optimisation techniques to significantly reduce execution time.",
+    },
+    {
+      icon: Lock,
+      title: "Identity & Access Management",
+      description:
+          "Build authentication and authorisation systems including JWT-based access, role-based permissions, account security flows, and secure service-to-service access.",
     },
     {
       icon: Cloud,
-      title: "Cloud Infrastructure",
+      title: "Production Operations & Reliability",
       description:
-        "Deploy and manage applications on AWS with Docker containerization, CI/CD pipelines, and infrastructure as code for reliable deployments.",
+          "Operate backend services in production by implementing monitoring, alerting, and operational safeguards to ensure reliability, observability, and safe failure handling.",
     },
     {
       icon: Code2,
-      title: "API Development",
+      title: "API & Platform Development",
       description:
-        "Create RESTful APIs with comprehensive documentation using Swagger, ensuring standardized, maintainable, and developer-friendly interfaces.",
+          "Design and implement REST APIs and internal platform services that support configuration-driven workflows, automation, and safe interaction with complex backend systems.",
     },
   ];
 
@@ -63,7 +64,7 @@ const Services = () => {
                 <service.icon className="text-primary" size={28} />
               </div>
               <h3 className="font-bold text-lg mb-3">{service.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
+              <p className="text-muted-foreground text-[15px] leading-[1.5] text-justify break-words">
                 {service.description}
               </p>
             </Card>

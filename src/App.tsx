@@ -29,15 +29,13 @@ const App = () => (
         <footer
             style={{
               textAlign: "center",
-              fontSize: "0.35rem",
-              color: "#c8d0db",
+              fontSize: "10px",
+              color: "#c8dadb",
               borderTop: "1px solid #eee",
             }}
         >
           <p>
-            This site collects basic public info (country, device
-            type) for analytics and security purposes. No personal or private data
-            is stored.
+              This site collects minimal, non-personal technical data (e.g., country and device type) solely for analytics and operational visibility. No personal or sensitive information is stored or shared.
           </p>
         </footer>
       </TooltipProvider>
