@@ -32,8 +32,10 @@ const Hero = () => {
                         </h1>
 
                         <p className="text-base text-muted-foreground max-w-2xl font-bold">
-                            Software Engineer building and owning backend systems in Java and Spring Boot, from system
-                            design and data pipelines to operating high-throughput services in production.
+                            Software Developer specializing in the Java and Spring ecosystem,
+                            crafting enterprise-grade, secure, and scalable systems with a focus on microservices
+                            architecture,
+                            secure data pipelines, and high-throughput solutions.
                         </p>
 
                         <div className="flex flex-wrap gap-4 pt-4">
