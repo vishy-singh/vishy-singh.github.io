@@ -4,37 +4,35 @@ import {Card} from "@/components/ui/card";
 const Experience = () => {
     const experiences = [
         {
-            title: "SDE – 1",
+            title: "SWE – 1",
             company: "Maya Data Privacy",
-            period: "Apr 2024 – Present",
+            period: "Jan 2024 – Present",
             achievements: [
-                "Designed and built a value-based column detection and classification system to automatically identify what kind of data is stored in each column across large database schemas. The system samples real data values from columns, filters out low-signal fields (such as columns with very few distinct values or empty data), and classifies fields into types like name, email, or date. To make this practical at scale, I introduced concurrency, early pruning, and intelligent sampling, which reduced full-schema processing time from 48–60 hours to roughly 35–40 minutes.",
+                "Optimised database connection management across multiple service modules by configuring an efficient connection pooling strategy, significantly reducing connection errors and timeout failures in production, improving overall service stability and reliability.",
 
-                "Implemented an internal Sensitive Data Detection (SDD) engine fully in Java that allows users to provide a reference table and column (for example, a column known to contain names) and then scans the entire schema to find other columns containing similar sensitive data. The detection logic combines value comparison, column metadata, and distribution checks, and runs concurrently to handle large schemas efficiently.",
+                "Built and scaled a value-based column detection and classification system for large database schemas, using intelligent sampling, cross-service processing, and concurrency to identify data types for anonymisation and cut processing time from 48-60 hours to ~35-40 minutes.",
 
-                "Built a secure on-prem licensing system to support customers running the platform outside of SaaS environments. This involved creating an internal license generation service that produces digitally signed license files containing user limits, expiry dates, and feature flags. I integrated public-key validation into the gateway so licenses can be validated at runtime without redeployments, and added workflows for license renewal and first-time user onboarding.",
+                "Implemented a secure on-prem licensing system with digitally signed license files and gateway-level validation to enforce expiry and user limits, automating license renewal and secure first-time user onboarding without manual intervention.",
 
-                "Automated the Trial–Reminder–Billing (TRB) workflow for API key–based access. I modelled the trial lifecycle in the database, implemented scheduled jobs to send welcome and reminder notifications, and built invoice generation and tracking logic. This removed manual tracking, ensured consistent trial expiry handling, and provided a clear audit trail for billing-related actions.",
+                "Automated the Trial–Reminder–Billing (TRB) lifecycle for API key-based access by modelling trial state in the database, running reliable scheduled notifications, and generating invoices-removing manual tracking and improving reliability in production.",
 
-                "Designed and implemented a backup and restore mechanism to make anonymisation workflows safe and reversible. Before anonymisation, the system can create backups of selected tables or entire schemas, and users can later restore, redo, or delete these backups. I added concurrent execution to handle large schemas efficiently and ensured the system works consistently across PostgreSQL, Oracle, and SAP HANA.",
+                "Built and owned a core Identity and Access Management (IDM) service, covering authentication and authorisation flows such as secure sign-up/login, token handling, role-based access control, and account security.",
 
-                "Implemented IP address and URL anonymisation with user-configurable consistency. When users choose consistent anonymisation, the system generates deterministic anonymised values using database-backed mappings so the same input always maps to the same output. When consistency is not required, fresh anonymised values are generated. This allows flexibility without sacrificing correctness.",
+                "Developed a backup and restore mechanism to support safe anonymisation workflows across Oracle, PostgreSQL, and SAP HANA, enabling concurrent execution, rollback, redo, and cleanup for large schemas in production.",
 
-                "Developed a collaboration group–based anonymisation mechanism to control consistency boundaries. Anonymised values are generated using a combination of the original value and a collaboration group identifier, ensuring data is anonymised consistently within a group while remaining isolated across different groups.",
+                "Owned IP and URL anonymisation logic, making key technical decisions to support user-configurable consistency through database-backed mappings and ensuring reliable, repeatable anonymisation in production systems.",
 
-                "Set up production monitoring and alerting using Spring Boot Actuator, Prometheus, and Grafana. I defined health checks and alert rules that trigger automated email notifications when services become unhealthy, improving visibility into production issues and reducing time to detect failures."
+                "Built an internal Sensitive Data Detection (SDD) engine in Java, identifying sensitive columns across large schemas using value comparison, column properties, and concurrent processing to scale efficiently.",
             ],
         },
         {
-            title: "SDE – Intern",
+            title: "SWE – Intern",
             company: "Maya Data Privacy",
-            period: "Dec 2023 – Mar 2024",
+            period: "Dec 2023 – Dec 2023",
             achievements: [
-                "Built a core Identity and Access Management (IDM) service responsible for authentication and authorisation across the platform. This included secure sign-up and login flows, JWT-based access and refresh tokens, role-based access control, account locking, and password management. The service became the central identity layer used by other backend services.",
+                "Implemented group-based access controls to manage data consistency boundaries across anonymisation workflows.",
 
-                "Integrated IBAN and credit card detection into the anonymisation pipeline using established Python libraries. This ensured accurate identification of financial identifiers while avoiding the risk and complexity of reimplementing validation logic from scratch.",
-
-                "Improved account security workflows by adding CAPTCHA and email-based OTP verification for sensitive operations such as password resets, reducing the risk of automated abuse and credential attacks."
+                "Integrated IBAN and credit card detection using established Python libraries to support accurate identification of financial identifiers within anonymisation workflows.",
             ],
         },
     ];
@@ -54,7 +52,7 @@ const Experience = () => {
                     {experiences.map((exp, index) => (
                         <Card
                             key={index}
-                            className="p-8 border-border hover:border-primary/30 transition-smooth animate-fade-in"
+                            className="p-8 border-border border-l-4 border-l-primary hover:border-primary/30 transition-smooth animate-fade-in"
                             style={{animationDelay: `${index * 150}ms`}}
                         >
                             <div className="flex items-start gap-4 mb-6">
@@ -72,7 +70,7 @@ const Experience = () => {
                                 {exp.achievements.map((achievement, achIndex) => (
                                     <div key={achIndex} className="flex gap-0">
                                         <Dot
-                                            className="text-accent flex-shrink-0"
+                                            className="text-primary flex-shrink-0"
                                             size={25}
                                         />
                                         <p className="text-muted-foreground text-[15px] leading-[1.5] text-justify break-words">

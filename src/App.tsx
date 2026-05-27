@@ -26,15 +26,8 @@ const App = () => (
         </BrowserRouter>
 
         {/* 👇 Add your footer here for transparency */}
-        <footer
-            style={{
-              textAlign: "center",
-              fontSize: "10px",
-              color: "#c8dadb",
-              borderTop: "1px solid #eee",
-            }}
-        >
-          <p>
+        <footer className="text-center py-4 border-t border-border">
+          <p className="text-[10px] text-muted-foreground">
               This site collects minimal, non-personal technical data (e.g., country and device type) solely for analytics and operational visibility. No personal or sensitive information is stored or shared.
           </p>
         </footer>

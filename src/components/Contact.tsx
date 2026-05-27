@@ -129,7 +129,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-secondary/30">
+    <section id="contact" className="py-24 bg-secondary/40">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
@@ -165,23 +165,23 @@ const Contact = () => {
               </div>
             </Card>
 
-            <Card className="p-8 border-border gradient-overlay">
+            <Card className="p-8 border-border bg-primary/5">
               <h3 className="font-bold text-xl mb-4">Available For</h3>
               <ul className="space-y-2 text-muted-foreground">
                 <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-accent" />
+                  <div className="w-2 h-2 rounded-full bg-primary" />
                   Full-time opportunities
                 </li>
                 <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-accent" />
+                  <div className="w-2 h-2 rounded-full bg-primary" />
                   Freelance projects
                 </li>
                 <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-accent" />
+                  <div className="w-2 h-2 rounded-full bg-primary" />
                   Technical consulting
                 </li>
                 <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-accent" />
+                  <div className="w-2 h-2 rounded-full bg-primary" />
                   Collaboration opportunities
                 </li>
               </ul>

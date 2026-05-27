@@ -11,9 +11,7 @@ const Hero = () => {
     };
 
     return (
-        <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-            {/* Background gradient overlay */}
-            <div className="absolute inset-0 gradient-overlay opacity-50"/>
+        <section id="home" className="min-h-[85vh] flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-white to-secondary/50">
 
             <div className="container mx-auto px-6 py-24 relative z-10">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -26,12 +24,12 @@ const Hero = () => {
 
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                             Hi, I'm{" "}
-                            <span className="gradient-primary bg-clip-text text-card">
+                            <span className="text-primary">
                                   Vishwajeet Pratap Singh
                             </span>
                         </h1>
 
-                        <p className="text-base text-muted-foreground max-w-2xl font-bold">
+                        <p className="text-base text-muted-foreground max-w-2xl font-normal">
                             Software Developer specializing in the Java and Spring ecosystem,
                             crafting enterprise-grade, secure, and scalable systems with a focus on microservices
                             architecture,
@@ -63,7 +61,7 @@ const Hero = () => {
                                 href="https://github.com/vishwajeet-singhh"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="p-3 rounded-full border border-border hover:border-primary hover:bg-primary/5 transition-smooth"
+                                className="p-3 rounded-lg border border-border hover:border-primary hover:bg-primary/5 transition-smooth"
                             >
                                 <Github size={20} className="text-foreground hover:text-primary"/>
                             </a>
@@ -71,19 +69,19 @@ const Hero = () => {
                                 href="https://www.linkedin.com/in/vishydev/"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="p-3 rounded-full border border-border hover:border-primary hover:bg-primary/5 transition-smooth"
+                                className="p-3 rounded-lg border border-border hover:border-primary hover:bg-primary/5 transition-smooth"
                             >
                                 <Linkedin size={20} className="text-foreground hover:text-primary"/>
                             </a>
                             <a
                                 href="mailto:vishy_singh@zohomail.in"
-                                className="p-3 rounded-full border border-border hover:border-primary hover:bg-primary/5 transition-smooth"
+                                className="p-3 rounded-lg border border-border hover:border-primary hover:bg-primary/5 transition-smooth"
                             >
                                 <Mail size={20} className="text-foreground hover:text-primary"/>
                             </a>
                             <a
                                 href="tel:9155676582"
-                                className="p-3 rounded-full border border-border hover:border-primary hover:bg-primary/5 transition-smooth"
+                                className="p-3 rounded-lg border border-border hover:border-primary hover:bg-primary/5 transition-smooth"
                             >
                                 <Phone size={20} className="text-foreground hover:text-primary"/>
                             </a>
@@ -93,12 +91,10 @@ const Hero = () => {
                     {/* Right: Profile Image */}
                     <div className="flex justify-center lg:justify-end animate-scale-in">
                         <div className="relative">
-                            {/* Decorative elements */}
-                            <div
-                                className="absolute inset-0 gradient-primary rounded-full blur-3xl opacity-20 animate-pulse"/>
+
 
                             <div
-                                className="relative w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-primary/20 shadow-xl">
+                                className="relative w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden border border-border shadow-xl">
                                 <img
                                     src={profileImage}
                                     alt="Vishwajeet Pratap Singh"
@@ -108,9 +104,9 @@ const Hero = () => {
 
                             {/* Floating badge */}
                             <div
-                                className="absolute bottom-8 -right-4 bg-card px-6 py-3 rounded-lg shadow-elegant border border-border">
+                                className="absolute bottom-8 -right-4 bg-card px-6 py-3 rounded-lg shadow-md border border-border">
                                 <div className="flex items-center gap-2">
-                                    <div className="w-3 h-3 bg-accent rounded-full animate-pulse"/>
+                                    <div className="w-3 h-3 bg-accent rounded-full"/>
                                     <span className="text-sm font-semibold">Available for Projects</span>
                                 </div>
                             </div>

@@ -118,7 +118,7 @@ const Skills = () => {
     ];
 
     return (
-        <section id="skills" className="py-24 bg-secondary/30">
+        <section id="skills" className="py-24 bg-secondary/40">
             <div className="container mx-auto px-6">
                 <div className="max-w-3xl mx-auto text-center mb-16 animate-fade-in">
                     <h2 className="text-3xl md:text-4xl font-bold mb-4">Technical Skills</h2>
@@ -131,7 +131,7 @@ const Skills = () => {
                     {skillCategories.map((category, index) => (
                         <Card
                             key={index}
-                            className="p-6 border-border hover:border-primary/30 transition-smooth animate-fade-in"
+                            className="p-6 border-border hover:border-primary/30 hover:-translate-y-0.5 transition-smooth animate-fade-in"
                             style={{animationDelay: `${index * 100}ms`}}
                         >
                             <h3 className="font-bold text-lg mb-4 text-primary">{category.category}</h3>

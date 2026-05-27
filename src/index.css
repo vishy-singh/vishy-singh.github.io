@@ -1,100 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Greenhouse-inspired design system. All colors in HSL. Light mode only. */
 
 @layer base {
   :root {
-    /* Zerodha-inspired color palette */
-    --background: 0 0% 98%;
-    --foreground: 215 25% 27%;
+    /* Greenhouse-inspired color palette — clean, calm, enterprise-grade */
+    --background: 0 0% 100%;
+    --foreground: 230 25% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 215 25% 27%;
+    --card-foreground: 230 25% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 27%;
+    --popover-foreground: 230 25% 15%;
 
-    /* Primary - Zerodha Blue */
-    --primary: 211 90% 52%;
+    /* Primary — Greenhouse Forest Green */
+    --primary: 153 50% 30%;
     --primary-foreground: 0 0% 100%;
-    --primary-light: 211 90% 60%;
-    --primary-dark: 211 90% 45%;
+    --primary-light: 153 45% 38%;
+    --primary-dark: 153 55% 24%;
 
-    /* Secondary - Calm Gray */
-    --secondary: 210 17% 95%;
-    --secondary-foreground: 215 25% 27%;
+    /* Secondary — Warm Light Gray */
+    --secondary: 150 10% 96%;
+    --secondary-foreground: 230 25% 15%;
 
-    /* Muted - Subtle backgrounds */
-    --muted: 210 17% 95%;
-    --muted-foreground: 215 15% 50%;
+    /* Muted — Soft neutrals */
+    --muted: 220 10% 96%;
+    --muted-foreground: 230 10% 45%;
 
-    /* Accent - Tech teal */
-    --accent: 189 85% 48%;
+    /* Accent — Sage Green */
+    --accent: 153 40% 45%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214 15% 88%;
-    --input: 214 15% 88%;
-    --ring: 211 90% 52%;
+    --border: 220 10% 90%;
+    --input: 220 10% 90%;
+    --ring: 153 50% 30%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
-    /* Custom design tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(211 90% 52%) 0%, hsl(189 85% 48%) 100%);
-    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(210 17% 98%) 100%);
-    --gradient-overlay: linear-gradient(135deg, hsl(211 90% 52% / 0.05) 0%, hsl(189 85% 48% / 0.05) 100%);
-    
-    /* Shadows */
-    --shadow-sm: 0 1px 2px 0 hsl(215 25% 27% / 0.05);
-    --shadow-md: 0 4px 6px -1px hsl(215 25% 27% / 0.08), 0 2px 4px -1px hsl(215 25% 27% / 0.04);
-    --shadow-lg: 0 10px 15px -3px hsl(215 25% 27% / 0.08), 0 4px 6px -2px hsl(215 25% 27% / 0.04);
-    --shadow-xl: 0 20px 25px -5px hsl(215 25% 27% / 0.08), 0 10px 10px -5px hsl(215 25% 27% / 0.04);
-    
+    /* Shadows — very subtle, Greenhouse-style */
+    --shadow-sm: 0 1px 2px 0 hsl(230 25% 15% / 0.04);
+    --shadow-md: 0 2px 8px -2px hsl(230 25% 15% / 0.06), 0 1px 3px -1px hsl(230 25% 15% / 0.04);
+    --shadow-lg: 0 4px 12px -3px hsl(230 25% 15% / 0.07), 0 2px 6px -2px hsl(230 25% 15% / 0.04);
+    --shadow-xl: 0 8px 20px -4px hsl(230 25% 15% / 0.08), 0 4px 8px -4px hsl(230 25% 15% / 0.04);
+
     /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .dark {
-    --background: 215 28% 10%;
-    --foreground: 210 20% 92%;
-
-    --card: 215 28% 12%;
-    --card-foreground: 210 20% 92%;
-
-    --popover: 215 28% 12%;
-    --popover-foreground: 210 20% 92%;
-
-    --primary: 211 90% 58%;
-    --primary-foreground: 0 0% 100%;
-    --primary-light: 211 90% 65%;
-    --primary-dark: 211 90% 50%;
-
-    --secondary: 215 25% 20%;
-    --secondary-foreground: 210 20% 92%;
-
-    --muted: 215 25% 20%;
-    --muted-foreground: 215 15% 60%;
-
-    --accent: 189 85% 52%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 215 25% 25%;
-    --input: 215 25% 25%;
-    --ring: 211 90% 58%;
-
-    --gradient-primary: linear-gradient(135deg, hsl(211 90% 58%) 0%, hsl(189 85% 52%) 100%);
-    --gradient-subtle: linear-gradient(180deg, hsl(215 28% 12%) 0%, hsl(215 28% 10%) 100%);
-    --gradient-overlay: linear-gradient(135deg, hsl(211 90% 58% / 0.1) 0%, hsl(189 85% 52% / 0.1) 100%);
   }
 }
 
@@ -105,15 +64,16 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
 
   html {
     scroll-behavior: smooth;
   }
 
-  /* Custom scrollbar */
+  /* Custom scrollbar — Greenhouse-green tinted */
   ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
   }
 
   ::-webkit-scrollbar-track {
@@ -121,25 +81,26 @@ All colors MUST be HSL.
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-primary/20 rounded-full;
+    @apply bg-primary/15 rounded-full;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-primary/30;
+    @apply bg-primary/25;
   }
 }
 
 @layer utilities {
+  /* gradient-primary now maps to solid green for backward compat */
   .gradient-primary {
-    background: var(--gradient-primary);
+    background: hsl(var(--primary));
   }
 
   .gradient-subtle {
-    background: var(--gradient-subtle);
+    background: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(150 10% 98%) 100%);
   }
 
   .gradient-overlay {
-    background: var(--gradient-overlay);
+    background: hsl(150 10% 97%);
   }
 
   .shadow-elegant {

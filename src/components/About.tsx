@@ -30,7 +30,7 @@ const About = () => {
     ];
 
     return (
-        <section id="about" className="py-24 bg-secondary/30">
+        <section id="about" className="py-24 bg-secondary/40">
             <div className="container mx-auto px-6">
                 {/* Header + Summary */}
                 <div className="max-w-3xl mx-auto text-center mb-16 animate-fade-in">
@@ -55,7 +55,7 @@ const About = () => {
                     {highlights.map((item, index) => (
                         <Card
                             key={index}
-                            className="p-6 hover:shadow-elegant transition-smooth border-border hover:border-primary/30 animate-fade-in"
+                            className="p-6 hover:shadow-elegant transition-smooth border-border hover:border-primary/30 hover:-translate-y-0.5 animate-fade-in"
                             style={{ animationDelay: `${index * 100}ms` }}
                         >
                             <div className="flex items-start gap-4">

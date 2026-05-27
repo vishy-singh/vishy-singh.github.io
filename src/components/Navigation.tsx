@@ -35,10 +35,10 @@ const Navigation = () => {
     return (
         <nav
             className={`fixed top-0 left-0 right-0 z-50 transition-smooth ${
-                isScrolled ? "bg-card/95 backdrop-blur-sm shadow-elegant" : "bg-transparent"
+                isScrolled ? "bg-white border-b border-border shadow-sm" : "bg-white/80 backdrop-blur-sm"
             }`}
         >
-            <div className="container mx-auto px-6 py-4">
+            <div className="container mx-auto px-6 py-4" style={{ backgroundColor: '#C9F0E5' }}>
                 <div className="flex items-center justify-between">
                     <a
                         href="#home"
@@ -46,7 +46,7 @@ const Navigation = () => {
                             e.preventDefault();
                             scrollToSection("#home");
                         }}
-                        className="text-xl font-bold text-foreground hover:text-primary transition-fast"
+                        className="text-lg font-semibold text-foreground hover:text-primary transition-fast"
                     >
                         Vishwajeet Pratap Singh
                     </a>
@@ -96,7 +96,7 @@ const Navigation = () => {
                 {/* Mobile Navigation */}
                 {isMobileMenuOpen && (
                     <div
-                        className="fixed inset-0 z-40 bg-white/90 backdrop-blur-md shadow-md md:hidden animate-fade-in"
+                        className="fixed inset-0 z-40 bg-white shadow-md md:hidden animate-fade-in"
                     >
                         <div className="flex justify-between items-center px-6 py-4 border-b">
                             <span className="text-lg font-semibold">Vishwajeet Singh</span>

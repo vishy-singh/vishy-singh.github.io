@@ -6,7 +6,7 @@ const Education = () => {
         <section id="education" className="py-24">
             <div className="container mx-auto px-6">
                 {/* 70% width wrapper */}
-                <div className="max-w-[70%] mx-auto">
+                <div className="max-w-3xl mx-auto">
 
                     {/* Header */}
                     <div className="text-center mb-16 animate-fade-in">
@@ -21,8 +21,8 @@ const Education = () => {
                     {/* Education Card */}
                     <Card className="p-8 border-border hover:border-primary/30 hover:shadow-elegant transition-smooth animate-fade-in">
                         <div className="flex items-start gap-4 mb-6">
-                            <div className="p-3 rounded-lg bg-accent/10">
-                                <GraduationCap className="text-accent" size={28} />
+                            <div className="p-3 rounded-lg bg-primary/10">
+                                <GraduationCap className="text-primary" size={28} />
                             </div>
                             <div>
                                 <h3 className="font-bold text-xl">
