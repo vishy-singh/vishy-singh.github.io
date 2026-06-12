@@ -1,251 +1,128 @@
-import { useState } from "react";
-import { Mail, Phone, Linkedin, Github, Globe, Send } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Card } from "@/components/ui/card";
-import { useToast } from "@/hooks/use-toast";
-import emailjs from "@emailjs/browser";
+import { Mail, Linkedin, Github, Globe } from "lucide-react";
 
 const Contact = () => {
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
+    const contactLinks = [
+        {
+            icon: Mail,
+            label: "Email",
+            value: "vishy.devv@gmail.com",
+            href: "mailto:vishy.devv@gmail.com",
+        },
+        {
+            icon: Linkedin,
+            label: "LinkedIn",
+            value: "linkedin.com/in/vishyysingh",
+            href: "https://www.linkedin.com/in/vishyysingh/",
+        },
+        {
+            icon: Github,
+            label: "GitHub",
+            value: "github.com/vishwajeet-singhh",
+            href: "https://github.com/vishwajeet-singhh",
+        },
+        {
+            icon: Globe,
+            label: "Website",
+            value: "vishwajeet.me",
+            href: "https://vishwajeet.me",
+        },
+    ];
 
+    return (
+        <section id="contact" className="py-24 bg-secondary/40">
+            <div
+                className="container mx-auto px-6 flex flex-col items-center text-center"
+                style={{ maxWidth: "700px" }}
+            >
+                {/* Eyebrow */}
+                <p
+                    className="text-xs uppercase tracking-widest font-medium mb-4"
+                    style={{ color: "#999" }}
+                >
+                    Contact
+                </p>
 
-  const contactInfo = [
-    {
-      icon: Mail,
-      label: "Email",
-      value: "vishy_singh@zohomail.in",
-      href: "mailto:vishy_singh@zohomail.in",
-    },
-    {
-      icon: Phone,
-      label: "Phone",
-      value: "+91 91556 76582",
-      href: "tel:9155676582",
-    },
-    {
-      icon: Linkedin,
-      label: "LinkedIn",
-      value: "linkedin.com/in/vishydev",
-      href: "https://www.linkedin.com/in/vishydev/",
-    },
-    {
-      icon: Github,
-      label: "GitHub",
-      value: "github.com/vishwajeet-singhh",
-      href: "https://github.com/vishwajeet-singhh",
-    },
-    {
-      icon: Globe,
-      label: "Portfolio",
-      value: "vishwajeet.me",
-      href: "https://vishwajeet.me",
-    },
-  ];
+                {/* Heading */}
+                <h2
+                    className="text-4xl md:text-5xl font-bold mb-5"
+                    style={{ color: "#1A1A1A" }}
+                >
+                    Let's Build Something.
+                </h2>
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+                {/* Subtext */}
+                <p
+                    className="text-lg mb-6"
+                    style={{ color: "#4A4A4A", lineHeight: "1.8", maxWidth: "480px" }}
+                >
+                    I'm available for backend projects, freelance work, and full-time roles.
+                    Especially interested in fintech and distributed systems.
+                </p>
 
-    // Basic validation
-    if (!formData.name || !formData.email || !formData.message) {
-      toast({
-        title: "Missing Information",
-        description: "Please fill in all fields before submitting.",
-        variant: "destructive",
-      });
-      return;
-    }
+                {/* Availability badge */}
+                <div className="flex items-center gap-2.5 mb-14">
+                    <span className="relative flex h-2.5 w-2.5">
+                        <span
+                            className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-60"
+                            style={{ backgroundColor: "#028561" }}
+                        />
+                        <span
+                            className="relative inline-flex h-2.5 w-2.5 rounded-full"
+                            style={{ backgroundColor: "#028561" }}
+                        />
+                    </span>
+                    <span className="text-sm font-medium" style={{ color: "#028561" }}>
+                        Available for Projects
+                    </span>
+                </div>
 
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email)) {
-      toast({
-        title: "Invalid Email",
-        description: "Please enter a valid email address.",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    setIsSubmitting(true);
-
-    // ⚡ Send email asynchronously
-    processFormData(formData)
-        .then(() => {
-          toast({
-            title: "Message Sent!",
-            description: "Thank you for reaching out. I'll get back to you soon.",
-          });
-          setFormData({ name: "", email: "", message: "" });
-        })
-        .catch((error) => {
-          console.error("Failed to send email:", error);
-          toast({
-            title: "Failed to Send Message",
-            description: "Something went wrong. Please try again later.",
-            variant: "destructive",
-          });
-        })
-        .finally(() => {
-          setIsSubmitting(false);
-        });
-  };
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
-  };
-
-  /**
-   * @description Dummy function to handle the form data.
-   * This is where you can add your logic to send the data to a backend.
-   * @param {object} data The form data collected from the user.
-   */
-  const processFormData = (data) => {
-    // Map your form data to the EmailJS template variables
-    const templateParams = {
-      from_name: data.name,
-      from_email: data.email,
-      message: data.message,
-    };
-
-    const serviceID = 'service_irg2tqs';
-    const templateID = 'template_bn2gokc';
-    const publicKey = 'P3AEzbFLAgiLPNdtE';
-
-    // This returns a promise which we will handle in handleSubmit
-    return emailjs.send(serviceID, templateID, templateParams, publicKey);
-  };
-
-  return (
-    <section id="contact" className="py-24 bg-secondary/40">
-      <div className="container mx-auto px-6">
-        <div className="max-w-3xl mx-auto text-center mb-16 animate-fade-in">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
-          <div className="h-1 w-20 gradient-primary mx-auto mb-8" />
-          <p className="text-lg text-muted-foreground">
-            Let's discuss how I can help bring your backend projects to life
-          </p>
-        </div>
-
-        <div className="max-w-5xl mx-auto grid lg:grid-cols-2 gap-8">
-          {/* Contact Information */}
-          <div className="space-y-6">
-            <Card className="p-8 border-border">
-              <h3 className="font-bold text-xl mb-6">Contact Information</h3>
-              <div className="space-y-4">
-                {contactInfo.map((item, index) => (
-                  <a
-                    key={index}
-                    href={item.href}
-                    target={item.href.startsWith("http") ? "_blank" : undefined}
-                    rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="flex items-center gap-4 p-3 rounded-lg hover:bg-secondary/50 transition-fast group"
-                  >
-                    <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-fast">
-                      <item.icon className="text-primary" size={20} />
-                    </div>
-                    <div>
-                      <p className="text-sm text-muted-foreground">{item.label}</p>
-                      <p className="font-medium">{item.value}</p>
-                    </div>
-                  </a>
-                ))}
-              </div>
-            </Card>
-
-            <Card className="p-8 border-border bg-primary/5">
-              <h3 className="font-bold text-xl mb-4">Available For</h3>
-              <ul className="space-y-2 text-muted-foreground">
-                <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-primary" />
-                  Full-time opportunities
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-primary" />
-                  Freelance projects
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-primary" />
-                  Technical consulting
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-primary" />
-                  Collaboration opportunities
-                </li>
-              </ul>
-            </Card>
-          </div>
-
-          {/* Contact Form */}
-          <Card className="p-8 border-border">
-            <h3 className="font-bold text-xl mb-6">Send a Message</h3>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-2">
-                  Your Name
-                </label>
-                <Input
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="John Doe"
-                  className="w-full"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2">
-                  Your Email
-                </label>
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="john@example.com"
-                  className="w-full"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2">
-                  Your Message
-                </label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="write your message..."
-                  rows={5}
-                  className="w-full"
-                />
-              </div>
-
-              <Button type="submit" variant="hero" size="lg" className="w-full group">
-                Send Message
-                <Send className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
-              </Button>
-            </form>
-          </Card>
-        </div>
-      </div>
-    </section>
-  );
+                {/* Contact link cards — 2×2 grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+                    {contactLinks.map((item, i) => (
+                        <a
+                            key={i}
+                            href={item.href}
+                            target={item.href.startsWith("http") ? "_blank" : undefined}
+                            rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                            className="flex flex-col items-center gap-2 px-4 border transition-all duration-150"
+                            style={{
+                                borderColor: "rgba(21,55,44,0.15)",
+                                borderRadius: "10px",
+                                backgroundColor: "#fff",
+                                textDecoration: "none",
+                                minHeight: "110px",
+                                justifyContent: "center",
+                            }}
+                            onMouseEnter={e => {
+                                const el = e.currentTarget as HTMLAnchorElement;
+                                el.style.borderColor = "#15372C";
+                                el.style.backgroundColor = "rgba(21,55,44,0.03)";
+                            }}
+                            onMouseLeave={e => {
+                                const el = e.currentTarget as HTMLAnchorElement;
+                                el.style.borderColor = "rgba(21,55,44,0.15)";
+                                el.style.backgroundColor = "#fff";
+                            }}
+                        >
+                            <item.icon size={20} style={{ color: "#15372C" }} />
+                            <span
+                                className="text-xs uppercase tracking-widest font-medium"
+                                style={{ color: "#999" }}
+                            >
+                                {item.label}
+                            </span>
+                            <span
+                                className="font-medium text-center"
+                                style={{ color: "#1A1A1A", fontSize: "14px" }}
+                            >
+                                {item.value}
+                            </span>
+                        </a>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
 };
 
 export default Contact;

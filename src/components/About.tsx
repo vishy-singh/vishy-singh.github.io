@@ -1,78 +1,74 @@
-import { GraduationCap, Code2, Zap, Server } from "lucide-react";
-import { Card } from "@/components/ui/card";
-
 const About = () => {
-    const highlights = [
-        {
-            icon: Code2,
-            title: "Backend Systems Ownership",
-            description:
-                "Build and own backend systems using Java and Spring Boot, taking features from system design through implementation to production operation.",
-        },
-        {
-            icon: Zap,
-            title: "Performance & Scale",
-            description:
-                "Hands-on experience optimising data-intensive and concurrent backend workflows, reducing execution time from hours to minutes in production systems.",
-        },
-        {
-            icon: Server,
-            title: "Production-First Mindset",
-            description:
-                "Focus on reliability, observability, and safe operations by designing systems that are monitored, debuggable, and resilient in real production environments.",
-        },
-        {
-            icon: GraduationCap,
-            title: "Continuous Growth",
-            description:
-                "Actively deepen understanding of system design, databases, and distributed systems through real-world problem solving and iteration.",
-        },
+    const stats = [
+        { value: "2.5+", label: "Years Exp" },
+        { value: "8+",   label: "Systems Built" },
+        { value: "3",    label: "Databases" },
     ];
 
     return (
         <section id="about" className="py-24 bg-secondary/40">
-            <div className="container mx-auto px-6">
-                {/* Header + Summary */}
-                <div className="max-w-3xl mx-auto text-center mb-16 animate-fade-in">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
-                    <div className="h-1 w-20 gradient-primary mx-auto mb-8" />
-                    <p className="text-lg text-muted-foreground leading-relaxed text-justify">
-                        Backend Software Engineer with ~2 years of experience building and
-                        operating high-throughput backend systems in a startup environment.
-                        I take features from design to production, owning architecture,
-                        implementation, and production readiness. Personally authored and
-                        maintained <strong>54K+ lines of production Java code</strong> across{" "}
-                        <strong>100+ REST APIs</strong> and{" "}
-                        <strong>250+ internal services/components</strong>, focusing on
-                        performance, reliability, and observability. I regularly help drive
-                        backend execution—planning work, mentoring engineers, and unblocking
-                        delivery—while remaining a hands-on individual contributor.
-                    </p>
+            <div className="container mx-auto px-6" style={{ maxWidth: "1100px" }}>
+
+                {/* Heading */}
+                <div className="mb-16">
+                    <h2
+                        className="text-4xl md:text-5xl font-bold"
+                        style={{ color: "#1A1A1A" }}
+                    >
+                        About Me
+                    </h2>
                 </div>
 
-                {/* Highlights (rendered ONCE) */}
-                <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-                    {highlights.map((item, index) => (
-                        <Card
-                            key={index}
-                            className="p-6 hover:shadow-elegant transition-smooth border-border hover:border-primary/30 hover:-translate-y-0.5 animate-fade-in"
-                            style={{ animationDelay: `${index * 100}ms` }}
-                        >
-                            <div className="flex items-start gap-4">
-                                <div className="p-3 rounded-lg bg-primary/10">
-                                    <item.icon className="text-primary" size={24} />
+                {/* Two-column layout */}
+                <div className="grid lg:grid-cols-3 gap-16 items-start">
+
+                    {/* Left: Bio (2/3) */}
+                    <div className="lg:col-span-2 space-y-6">
+                        <p className="text-lg leading-relaxed" style={{ color: "#3A3A3A", lineHeight: "1.85", textAlign: "justify" }}>
+                            I started as an intern and quickly grew into the engineer responsible
+                            for designing entire systems from the ground up — IAM, billing engines,
+                            schema intelligence, licensing, cloud infrastructure. All of it, solo.
+                        </p>
+                        <p className="text-lg leading-relaxed" style={{ color: "#3A3A3A", lineHeight: "1.85", textAlign: "justify" }}>
+                            Along the way I also took on the role of Scrum Master — running sprint
+                            ceremonies, unblocking the team, and keeping delivery on track — while
+                            continuing to ship as an individual contributor. It taught me that good
+                            engineering is as much about communication as it is about code.
+                        </p>
+                        <p className="text-lg leading-relaxed" style={{ color: "#3A3A3A", lineHeight: "1.85", textAlign: "justify" }}>
+                            I'm drawn to backend problems that have real consequences: fintech
+                            systems where money moves, distributed architectures where failures
+                            cascade, APIs that serve at scale. That's where I do my best work.
+                        </p>
+                        <p className="text-lg leading-relaxed" style={{ color: "#3A3A3A", lineHeight: "1.85", textAlign: "justify" }}>
+                            Outside of professional work, I've built features involving event-driven
+                            systems with Apache Kafka, implemented Redis caching layers that cut
+                            response times significantly, refactored legacy codebases for
+                            maintainability, and worked across the full backend lifecycle from
+                            design to deployment to production support.
+                        </p>
+                    </div>
+
+                    {/* Right: Stats (1/3) */}
+                    <div className="space-y-10">
+                        {stats.map((stat, i) => (
+                            <div key={i}>
+                                <div
+                                    className="font-bold leading-none mb-2"
+                                    style={{ color: "#15372C", fontSize: "48px" }}
+                                >
+                                    {stat.value}
                                 </div>
-                                <div>
-                                    <h3 className="font-semibold text-lg mb-2">
-                                        {item.title}
-                                    </h3>
-                                    <p className="text-muted-foreground text-[15px] leading-[1.7]">
-                                        {item.description}
-                                    </p>
+                                <div
+                                    className="text-xs uppercase tracking-widest font-medium"
+                                    style={{ color: "#999" }}
+                                >
+                                    {stat.label}
                                 </div>
                             </div>
-                        </Card>
-                    ))}
+                        ))}
+                    </div>
+
                 </div>
             </div>
         </section>

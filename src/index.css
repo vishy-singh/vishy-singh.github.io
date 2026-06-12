@@ -9,8 +9,8 @@
 @layer base {
   :root {
     /* Greenhouse-inspired color palette — clean, calm, enterprise-grade */
-    --background: 0 0% 100%;
-    --foreground: 230 25% 15%;
+    --background: 44 27% 97%;
+    --foreground: 157 45% 23%;
 
     --card: 0 0% 100%;
     --card-foreground: 230 25% 15%;

@@ -1,117 +1,169 @@
-import {ArrowRight, Github, Linkedin, Mail, Phone} from "lucide-react";
-import {Button} from "@/components/ui/button";
+import { ArrowRight, Download, Github, Linkedin, Mail, Globe } from "lucide-react";
 import profileImage from "@/assets/profile.jpg";
+
+const RESUME_URL =
+    "https://drive.google.com/file/d/1XsD4Zm-YxP-jUMyoA1Iwd2bzGHlhEba7/view?usp=drive_link";
 
 const Hero = () => {
     const scrollToSection = (href: string) => {
-        const element = document.querySelector(href);
-        if (element) {
-            element.scrollIntoView({behavior: "smooth"});
-        }
+        const el = document.querySelector(href);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
     };
 
     return (
-        <section id="home" className="min-h-[85vh] flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-white to-secondary/50">
+        <section
+            id="home"
+            className="min-h-[88vh] flex items-center"
+            style={{ backgroundColor: "#FAF9F6" }}
+        >
+            <div className="container mx-auto px-6 py-24" style={{ maxWidth: "1100px" }}>
+                <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-            <div className="container mx-auto px-6 py-24 relative z-10">
-                <div className="grid lg:grid-cols-2 gap-12 items-center">
-                    {/* Left: Text Content */}
-                    <div className="space-y-6 animate-fade-in">
-                        <div
-                            className="inline-block px-4 py-2 bg-primary/10 rounded-full text-primary font-medium text-sm">
-                            Software Engineer
+                    {/* Left: Text */}
+                    <div className="space-y-7">
+
+                        {/* Availability badge */}
+                        <div className="flex items-center gap-2.5">
+                            <span className="relative flex h-2.5 w-2.5">
+                                <span
+                                    className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-60"
+                                    style={{ backgroundColor: "#028561" }}
+                                />
+                                <span
+                                    className="relative inline-flex h-2.5 w-2.5 rounded-full"
+                                    style={{ backgroundColor: "#028561" }}
+                                />
+                            </span>
+                            <span className="text-sm font-medium" style={{ color: "#028561" }}>
+                                Available for Projects
+                            </span>
                         </div>
 
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                            Hi, I'm{" "}
-                            <span className="text-primary">
-                                  Vishwajeet Pratap Singh
-                            </span>
-                        </h1>
-
-                        <p className="text-base text-muted-foreground max-w-2xl font-normal">
-                            Software Developer specializing in the Java and Spring ecosystem,
-                            crafting enterprise-grade, secure, and scalable systems with a focus on microservices
-                            architecture,
-                            secure data pipelines, and high-throughput solutions.
+                        {/* Eyebrow label */}
+                        <p
+                            className="text-xs uppercase tracking-widest font-medium"
+                            style={{ color: "#999" }}
+                        >
+                            Software Engineer · Backend
                         </p>
 
-                        <div className="flex flex-wrap gap-4 pt-4">
-                            <Button
-                                variant="hero"
-                                size="lg"
+                        {/* Headline */}
+                        <h1
+                            className="font-bold"
+                            style={{
+                                color: "#1A1A1A",
+                                fontSize: "clamp(2rem, 3.2vw, 3rem)",
+                                lineHeight: "1.1",
+                            }}
+                        >
+                            Systems that scale.<br />
+                            Infrastructure that holds.
+                        </h1>
+
+                        {/* Subtext */}
+                        <p
+                            className="text-base leading-relaxed"
+                            style={{ color: "#4A4A4A", lineHeight: "1.8", maxWidth: "520px", textAlign: "justify" }}
+                        >
+                            I'm Vishwajeet — a backend engineer with 2.5+ years of experience
+                            designing and shipping production-grade systems end-to-end. Java,
+                            Spring Boot, distributed architecture, and the quiet satisfaction
+                            of things that just work.
+                        </p>
+
+                        {/* CTAs */}
+                        <div className="flex flex-wrap gap-4">
+                            <button
                                 onClick={() => scrollToSection("#experience")}
-                                className="group"
+                                className="flex items-center gap-2 px-7 py-3.5 text-sm font-semibold transition-all duration-200"
+                                style={{
+                                    backgroundColor: "#15372C",
+                                    color: "#fff",
+                                    border: "none",
+                                    borderRadius: "6px",
+                                    cursor: "pointer",
+                                }}
+                                onMouseEnter={e => {
+                                    (e.currentTarget as HTMLButtonElement).style.backgroundColor = "#0f2a1f";
+                                }}
+                                onMouseLeave={e => {
+                                    (e.currentTarget as HTMLButtonElement).style.backgroundColor = "#15372C";
+                                }}
                             >
-                                View My Work
-                                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20}/>
-                            </Button>
-                            <Button
-                                variant="outline"
-                                size="lg"
-                                onClick={() => scrollToSection("#contact")}
+                                See My Work
+                                <ArrowRight size={15} />
+                            </button>
+
+                            <a
+                                href={RESUME_URL}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-2 px-7 py-3.5 text-sm font-semibold border transition-all duration-200"
+                                style={{
+                                    borderColor: "rgba(21,55,44,0.3)",
+                                    color: "#15372C",
+                                    backgroundColor: "transparent",
+                                    borderRadius: "6px",
+                                    textDecoration: "none",
+                                }}
+                                onMouseEnter={e => {
+                                    const el = e.currentTarget as HTMLAnchorElement;
+                                    el.style.borderColor = "#15372C";
+                                    el.style.backgroundColor = "rgba(21,55,44,0.04)";
+                                }}
+                                onMouseLeave={e => {
+                                    const el = e.currentTarget as HTMLAnchorElement;
+                                    el.style.borderColor = "rgba(21,55,44,0.3)";
+                                    el.style.backgroundColor = "transparent";
+                                }}
                             >
-                                Contact Me
-                            </Button>
+                                <Download size={15} />
+                                Download Resume
+                            </a>
                         </div>
 
-                        {/* Quick Contact Links */}
-                        <div className="flex flex-wrap gap-4 pt-6">
-                            <a
-                                href="https://github.com/vishwajeet-singhh"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="p-3 rounded-lg border border-border hover:border-primary hover:bg-primary/5 transition-smooth"
-                            >
-                                <Github size={20} className="text-foreground hover:text-primary"/>
-                            </a>
-                            <a
-                                href="https://www.linkedin.com/in/vishydev/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="p-3 rounded-lg border border-border hover:border-primary hover:bg-primary/5 transition-smooth"
-                            >
-                                <Linkedin size={20} className="text-foreground hover:text-primary"/>
-                            </a>
-                            <a
-                                href="mailto:vishy_singh@zohomail.in"
-                                className="p-3 rounded-lg border border-border hover:border-primary hover:bg-primary/5 transition-smooth"
-                            >
-                                <Mail size={20} className="text-foreground hover:text-primary"/>
-                            </a>
-                            <a
-                                href="tel:9155676582"
-                                className="p-3 rounded-lg border border-border hover:border-primary hover:bg-primary/5 transition-smooth"
-                            >
-                                <Phone size={20} className="text-foreground hover:text-primary"/>
-                            </a>
+                        {/* Social links */}
+                        <div className="flex items-center gap-5 pt-1">
+                            {[
+                                { href: "https://github.com/vishwajeet-singhh", icon: Github, label: "GitHub" },
+                                { href: "https://www.linkedin.com/in/vishyysingh/", icon: Linkedin, label: "LinkedIn" },
+                                { href: "mailto:vishy.devv@gmail.com", icon: Mail, label: "Email" },
+                                { href: "https://vishwajeet.me", icon: Globe, label: "Website" },
+                            ].map(({ href, icon: Icon, label }) => (
+                                <a
+                                    key={label}
+                                    href={href}
+                                    target={href.startsWith("http") ? "_blank" : undefined}
+                                    rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+                                    className="transition-opacity duration-150"
+                                    style={{ color: "#888", opacity: 1 }}
+                                    title={label}
+                                    onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.opacity = "0.5"; }}
+                                    onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.opacity = "1"; }}
+                                >
+                                    <Icon size={20} />
+                                </a>
+                            ))}
                         </div>
                     </div>
 
-                    {/* Right: Profile Image */}
-                    <div className="flex justify-center lg:justify-end animate-scale-in">
-                        <div className="relative">
-
-
-                            <div
-                                className="relative w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden border border-border shadow-xl">
-                                <img
-                                    src={profileImage}
-                                    alt="Vishwajeet Pratap Singh"
-                                    className="w-full h-full object-cover"
-                                />
-                            </div>
-
-                            {/* Floating badge */}
-                            <div
-                                className="absolute bottom-8 -right-4 bg-card px-6 py-3 rounded-lg shadow-md border border-border">
-                                <div className="flex items-center gap-2">
-                                    <div className="w-3 h-3 bg-accent rounded-full"/>
-                                    <span className="text-sm font-semibold">Available for Projects</span>
-                                </div>
-                            </div>
+                    {/* Right: Profile image */}
+                    <div className="flex justify-center lg:justify-end">
+                        <div
+                            className="w-72 h-72 md:w-[380px] md:h-[380px] overflow-hidden"
+                            style={{
+                                borderRadius: "12px",
+                                boxShadow: "0 8px 40px rgba(21,55,44,0.12)",
+                            }}
+                        >
+                            <img
+                                src={profileImage}
+                                alt="Vishwajeet Pratap Singh"
+                                className="w-full h-full object-cover"
+                            />
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
