@@ -1,4 +1,4 @@
-import { Mail, Linkedin, Github, Globe } from "lucide-react";
+import {Github, Globe, Linkedin, Mail} from "lucide-react";
 
 const Contact = () => {
     const contactLinks = [
@@ -32,12 +32,12 @@ const Contact = () => {
         <section id="contact" className="py-24 bg-secondary/40">
             <div
                 className="container mx-auto px-6 flex flex-col items-center text-center"
-                style={{ maxWidth: "700px" }}
+                style={{maxWidth: "700px"}}
             >
                 {/* Eyebrow */}
                 <p
                     className="text-xs uppercase tracking-widest font-medium mb-4"
-                    style={{ color: "#999" }}
+                    style={{color: "#999"}}
                 >
                     Contact
                 </p>
@@ -45,7 +45,7 @@ const Contact = () => {
                 {/* Heading */}
                 <h2
                     className="text-4xl md:text-5xl font-bold mb-5"
-                    style={{ color: "#1A1A1A" }}
+                    style={{color: "#1A1A1A"}}
                 >
                     Let's Build Something.
                 </h2>
@@ -53,7 +53,7 @@ const Contact = () => {
                 {/* Subtext */}
                 <p
                     className="text-lg mb-6"
-                    style={{ color: "#4A4A4A", lineHeight: "1.8", maxWidth: "480px" }}
+                    style={{color: "#4A4A4A", lineHeight: "1.8", maxWidth: "480px"}}
                 >
                     I'm available for backend projects, freelance work, and full-time roles.
                     Especially interested in fintech and distributed systems.
@@ -64,14 +64,14 @@ const Contact = () => {
                     <span className="relative flex h-2.5 w-2.5">
                         <span
                             className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-60"
-                            style={{ backgroundColor: "#028561" }}
+                            style={{backgroundColor: "#028561"}}
                         />
                         <span
                             className="relative inline-flex h-2.5 w-2.5 rounded-full"
-                            style={{ backgroundColor: "#028561" }}
+                            style={{backgroundColor: "#028561"}}
                         />
                     </span>
-                    <span className="text-sm font-medium" style={{ color: "#028561" }}>
+                    <span className="text-sm font-medium" style={{color: "#028561"}}>
                         Available for Projects
                     </span>
                 </div>
@@ -104,16 +104,16 @@ const Contact = () => {
                                 el.style.backgroundColor = "#fff";
                             }}
                         >
-                            <item.icon size={20} style={{ color: "#15372C" }} />
+                            <item.icon size={20} style={{color: "#15372C"}}/>
                             <span
                                 className="text-xs uppercase tracking-widest font-medium"
-                                style={{ color: "#999" }}
+                                style={{color: "#999"}}
                             >
                                 {item.label}
                             </span>
                             <span
                                 className="font-medium text-center"
-                                style={{ color: "#1A1A1A", fontSize: "14px" }}
+                                style={{color: "#1A1A1A", fontSize: "14px"}}
                             >
                                 {item.value}
                             </span>

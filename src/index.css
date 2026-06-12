@@ -7,111 +7,111 @@
 /* Greenhouse-inspired design system. All colors in HSL. Light mode only. */
 
 @layer base {
-  :root {
-    /* Greenhouse-inspired color palette — clean, calm, enterprise-grade */
-    --background: 44 27% 97%;
-    --foreground: 157 45% 23%;
+    :root {
+        /* Greenhouse-inspired color palette — clean, calm, enterprise-grade */
+        --background: 44 27% 97%;
+        --foreground: 157 45% 23%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 230 25% 15%;
+        --card: 0 0% 100%;
+        --card-foreground: 230 25% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 230 25% 15%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 230 25% 15%;
 
-    /* Primary — Greenhouse Forest Green */
-    --primary: 153 50% 30%;
-    --primary-foreground: 0 0% 100%;
-    --primary-light: 153 45% 38%;
-    --primary-dark: 153 55% 24%;
+        /* Primary — Greenhouse Forest Green */
+        --primary: 153 50% 30%;
+        --primary-foreground: 0 0% 100%;
+        --primary-light: 153 45% 38%;
+        --primary-dark: 153 55% 24%;
 
-    /* Secondary — Warm Light Gray */
-    --secondary: 150 10% 96%;
-    --secondary-foreground: 230 25% 15%;
+        /* Secondary — Warm Light Gray */
+        --secondary: 150 10% 96%;
+        --secondary-foreground: 230 25% 15%;
 
-    /* Muted — Soft neutrals */
-    --muted: 220 10% 96%;
-    --muted-foreground: 230 10% 45%;
+        /* Muted — Soft neutrals */
+        --muted: 220 10% 96%;
+        --muted-foreground: 230 10% 45%;
 
-    /* Accent — Sage Green */
-    --accent: 153 40% 45%;
-    --accent-foreground: 0 0% 100%;
+        /* Accent — Sage Green */
+        --accent: 153 40% 45%;
+        --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 0 0% 100%;
 
-    --border: 220 10% 90%;
-    --input: 220 10% 90%;
-    --ring: 153 50% 30%;
+        --border: 220 10% 90%;
+        --input: 220 10% 90%;
+        --ring: 153 50% 30%;
 
-    --radius: 0.5rem;
+        --radius: 0.5rem;
 
-    /* Shadows — very subtle, Greenhouse-style */
-    --shadow-sm: 0 1px 2px 0 hsl(230 25% 15% / 0.04);
-    --shadow-md: 0 2px 8px -2px hsl(230 25% 15% / 0.06), 0 1px 3px -1px hsl(230 25% 15% / 0.04);
-    --shadow-lg: 0 4px 12px -3px hsl(230 25% 15% / 0.07), 0 2px 6px -2px hsl(230 25% 15% / 0.04);
-    --shadow-xl: 0 8px 20px -4px hsl(230 25% 15% / 0.08), 0 4px 8px -4px hsl(230 25% 15% / 0.04);
+        /* Shadows — very subtle, Greenhouse-style */
+        --shadow-sm: 0 1px 2px 0 hsl(230 25% 15% / 0.04);
+        --shadow-md: 0 2px 8px -2px hsl(230 25% 15% / 0.06), 0 1px 3px -1px hsl(230 25% 15% / 0.04);
+        --shadow-lg: 0 4px 12px -3px hsl(230 25% 15% / 0.07), 0 2px 6px -2px hsl(230 25% 15% / 0.04);
+        --shadow-xl: 0 8px 20px -4px hsl(230 25% 15% / 0.08), 0 4px 8px -4px hsl(230 25% 15% / 0.04);
 
-    /* Transitions */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-  }
+        /* Transitions */
+        --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    }
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
+    * {
+        @apply border-border;
+    }
 
-  body {
-    @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  }
+    body {
+        @apply bg-background text-foreground antialiased;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
 
-  html {
-    scroll-behavior: smooth;
-  }
+    html {
+        scroll-behavior: smooth;
+    }
 
-  /* Custom scrollbar — Greenhouse-green tinted */
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
+    /* Custom scrollbar — Greenhouse-green tinted */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
 
-  ::-webkit-scrollbar-track {
-    @apply bg-background;
-  }
+    ::-webkit-scrollbar-track {
+        @apply bg-background;
+    }
 
-  ::-webkit-scrollbar-thumb {
-    @apply bg-primary/15 rounded-full;
-  }
+    ::-webkit-scrollbar-thumb {
+        @apply bg-primary/15 rounded-full;
+    }
 
-  ::-webkit-scrollbar-thumb:hover {
-    @apply bg-primary/25;
-  }
+    ::-webkit-scrollbar-thumb:hover {
+        @apply bg-primary/25;
+    }
 }
 
 @layer utilities {
-  /* gradient-primary now maps to solid green for backward compat */
-  .gradient-primary {
-    background: hsl(var(--primary));
-  }
+    /* gradient-primary now maps to solid green for backward compat */
+    .gradient-primary {
+        background: hsl(var(--primary));
+    }
 
-  .gradient-subtle {
-    background: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(150 10% 98%) 100%);
-  }
+    .gradient-subtle {
+        background: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(150 10% 98%) 100%);
+    }
 
-  .gradient-overlay {
-    background: hsl(150 10% 97%);
-  }
+    .gradient-overlay {
+        background: hsl(150 10% 97%);
+    }
 
-  .shadow-elegant {
-    box-shadow: var(--shadow-lg);
-  }
+    .shadow-elegant {
+        box-shadow: var(--shadow-lg);
+    }
 
-  .transition-smooth {
-    transition: var(--transition-smooth);
-  }
+    .transition-smooth {
+        transition: var(--transition-smooth);
+    }
 
-  .transition-fast {
-    transition: var(--transition-fast);
-  }
+    .transition-fast {
+        transition: var(--transition-fast);
+    }
 }

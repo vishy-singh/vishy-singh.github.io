@@ -1,4 +1,4 @@
-import { GraduationCap } from "lucide-react";
+import {GraduationCap} from "lucide-react";
 
 const Education = () => {
     const entries = [
@@ -18,19 +18,19 @@ const Education = () => {
 
     return (
         <section id="education" className="py-24">
-            <div className="container mx-auto px-6" style={{ maxWidth: "1100px" }}>
+            <div className="container mx-auto px-6" style={{maxWidth: "1100px"}}>
 
                 {/* Eyebrow + Heading */}
                 <div className="mb-16">
                     <p
                         className="text-xs uppercase tracking-widest font-medium mb-3"
-                        style={{ color: "#999" }}
+                        style={{color: "#999"}}
                     >
                         Education
                     </p>
                     <h2
                         className="text-4xl md:text-5xl font-bold"
-                        style={{ color: "#1A1A1A" }}
+                        style={{color: "#1A1A1A"}}
                     >
                         Education
                     </h2>
@@ -44,33 +44,33 @@ const Education = () => {
                         >
                             <div
                                 className="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-lg"
-                                style={{ backgroundColor: "rgba(21,55,44,0.08)" }}
+                                style={{backgroundColor: "rgba(21,55,44,0.08)"}}
                             >
-                                <GraduationCap size={18} style={{ color: "#15372C" }} />
+                                <GraduationCap size={18} style={{color: "#15372C"}}/>
                             </div>
                             <div>
                                 <h3
                                     className="text-lg font-semibold mb-0.5"
-                                    style={{ color: "#1A1A1A" }}
+                                    style={{color: "#1A1A1A"}}
                                 >
                                     {entry.degree}
                                 </h3>
                                 <p
                                     className="text-sm mb-1"
-                                    style={{ color: "#028561", fontWeight: 500 }}
+                                    style={{color: "#028561", fontWeight: 500}}
                                 >
                                     {entry.institute}
                                 </p>
                                 <p
                                     className="text-xs uppercase tracking-widest mb-2"
-                                    style={{ color: "#aaa" }}
+                                    style={{color: "#aaa"}}
                                 >
                                     {entry.meta}
                                 </p>
                                 {entry.note && (
                                     <p
                                         className="text-sm leading-relaxed"
-                                        style={{ color: "#777", lineHeight: "1.7", fontSize: "14px" }}
+                                        style={{color: "#777", lineHeight: "1.7", fontSize: "14px"}}
                                     >
                                         {entry.note}
                                     </p>

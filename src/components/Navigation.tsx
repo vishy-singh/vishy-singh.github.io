@@ -1,5 +1,5 @@
-import {useState, useEffect} from "react";
-import {Menu, X, User} from "lucide-react";
+import {useEffect, useState} from "react";
+import {Menu, User, X} from "lucide-react";
 
 const Navigation = () => {
     const [isScrolled, setIsScrolled] = useState(false);

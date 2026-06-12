@@ -1,4 +1,4 @@
-import { ArrowRight, Download, Github, Linkedin, Mail, Globe } from "lucide-react";
+import {ArrowRight, Download, Github, Globe, Linkedin, Mail} from "lucide-react";
 import profileImage from "@/assets/profile.jpg";
 
 const RESUME_URL =
@@ -7,16 +7,16 @@ const RESUME_URL =
 const Hero = () => {
     const scrollToSection = (href: string) => {
         const el = document.querySelector(href);
-        if (el) el.scrollIntoView({ behavior: "smooth" });
+        if (el) el.scrollIntoView({behavior: "smooth"});
     };
 
     return (
         <section
             id="home"
             className="min-h-[88vh] flex items-center"
-            style={{ backgroundColor: "#FAF9F6" }}
+            style={{backgroundColor: "#FAF9F6"}}
         >
-            <div className="container mx-auto px-6 py-24" style={{ maxWidth: "1100px" }}>
+            <div className="container mx-auto px-6 py-24" style={{maxWidth: "1100px"}}>
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
 
                     {/* Left: Text */}
@@ -27,14 +27,14 @@ const Hero = () => {
                             <span className="relative flex h-2.5 w-2.5">
                                 <span
                                     className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-60"
-                                    style={{ backgroundColor: "#028561" }}
+                                    style={{backgroundColor: "#028561"}}
                                 />
                                 <span
                                     className="relative inline-flex h-2.5 w-2.5 rounded-full"
-                                    style={{ backgroundColor: "#028561" }}
+                                    style={{backgroundColor: "#028561"}}
                                 />
                             </span>
-                            <span className="text-sm font-medium" style={{ color: "#028561" }}>
+                            <span className="text-sm font-medium" style={{color: "#028561"}}>
                                 Available for Projects
                             </span>
                         </div>
@@ -42,7 +42,7 @@ const Hero = () => {
                         {/* Eyebrow label */}
                         <p
                             className="text-xs uppercase tracking-widest font-medium"
-                            style={{ color: "#999" }}
+                            style={{color: "#999"}}
                         >
                             Software Engineer · Backend
                         </p>
@@ -56,16 +56,16 @@ const Hero = () => {
                                 lineHeight: "1.1",
                             }}
                         >
-                            Systems that scale.<br />
+                            Systems that scale.<br/>
                             Infrastructure that holds.
                         </h1>
 
                         {/* Subtext */}
                         <p
                             className="text-base leading-relaxed"
-                            style={{ color: "#4A4A4A", lineHeight: "1.8", maxWidth: "520px", textAlign: "justify" }}
+                            style={{color: "#4A4A4A", lineHeight: "1.8", maxWidth: "520px", textAlign: "justify"}}
                         >
-                            I'm Vishwajeet — a backend engineer with 2.5+ years of experience
+                            I'm Vishwajeet - a backend engineer with 2.5+ years of experience
                             designing and shipping production-grade systems end-to-end. Java,
                             Spring Boot, distributed architecture, and the quiet satisfaction
                             of things that just work.
@@ -91,7 +91,7 @@ const Hero = () => {
                                 }}
                             >
                                 See My Work
-                                <ArrowRight size={15} />
+                                <ArrowRight size={15}/>
                             </button>
 
                             <a
@@ -117,7 +117,7 @@ const Hero = () => {
                                     el.style.backgroundColor = "transparent";
                                 }}
                             >
-                                <Download size={15} />
+                                <Download size={15}/>
                                 Download Resume
                             </a>
                         </div>
@@ -125,23 +125,27 @@ const Hero = () => {
                         {/* Social links */}
                         <div className="flex items-center gap-5 pt-1">
                             {[
-                                { href: "https://github.com/vishwajeet-singhh", icon: Github, label: "GitHub" },
-                                { href: "https://www.linkedin.com/in/vishyysingh/", icon: Linkedin, label: "LinkedIn" },
-                                { href: "mailto:vishy.devv@gmail.com", icon: Mail, label: "Email" },
-                                { href: "https://vishwajeet.me", icon: Globe, label: "Website" },
-                            ].map(({ href, icon: Icon, label }) => (
+                                {href: "https://github.com/vishwajeet-singhh", icon: Github, label: "GitHub"},
+                                {href: "https://www.linkedin.com/in/vishyysingh/", icon: Linkedin, label: "LinkedIn"},
+                                {href: "mailto:vishy.devv@gmail.com", icon: Mail, label: "Email"},
+                                {href: "https://vishwajeet.me", icon: Globe, label: "Website"},
+                            ].map(({href, icon: Icon, label}) => (
                                 <a
                                     key={label}
                                     href={href}
                                     target={href.startsWith("http") ? "_blank" : undefined}
                                     rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
                                     className="transition-opacity duration-150"
-                                    style={{ color: "#888", opacity: 1 }}
+                                    style={{color: "#888", opacity: 1}}
                                     title={label}
-                                    onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.opacity = "0.5"; }}
-                                    onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.opacity = "1"; }}
+                                    onMouseEnter={e => {
+                                        (e.currentTarget as HTMLAnchorElement).style.opacity = "0.5";
+                                    }}
+                                    onMouseLeave={e => {
+                                        (e.currentTarget as HTMLAnchorElement).style.opacity = "1";
+                                    }}
                                 >
-                                    <Icon size={20} />
+                                    <Icon size={20}/>
                                 </a>
                             ))}
                         </div>

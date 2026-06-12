@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import {useEffect} from "react";
 import emailjs from "@emailjs/browser";
 
 const VisitorLogger = () => {
