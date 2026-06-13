@@ -17,61 +17,52 @@ const Education = () => {
     ];
 
     return (
-        <section id="education" className="py-24">
-            <div className="container mx-auto px-6" style={{maxWidth: "1100px"}}>
+        <section
+            id="education"
+            className="px-5 md:px-10 py-12 md:py-16"
+            style={{scrollMarginTop: "80px"}}
+        >
+            {/* Heading */}
+            <h2
+                className="mb-8"
+                style={{color: "var(--pp-text)", fontSize: "clamp(28px, 4vw, 38px)", fontWeight: 800}}
+            >
+                Education
+            </h2>
 
-                {/* Eyebrow + Heading */}
-                <div className="mb-16">
-                    <p
-                        className="text-xs uppercase tracking-widest font-medium mb-3"
-                        style={{color: "#999"}}
-                    >
-                        Education
-                    </p>
-                    <h2
-                        className="text-4xl md:text-5xl font-bold"
-                        style={{color: "#1A1A1A"}}
-                    >
-                        Education
-                    </h2>
-                </div>
-
-                <div className="max-w-2xl space-y-10">
+            <div className="pp-card" style={{padding: "28px"}}>
+                <div className="space-y-8">
                     {entries.map((entry, i) => (
-                        <div
-                            key={i}
-                            className="flex gap-5 items-start"
-                        >
+                        <div key={i} className="flex gap-4 items-start">
                             <div
-                                className="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-lg"
-                                style={{backgroundColor: "rgba(21,55,44,0.08)"}}
+                                className="flex-shrink-0 flex items-center justify-center"
+                                style={{
+                                    width: "44px",
+                                    height: "44px",
+                                    borderRadius: "12px",
+                                    backgroundColor: "var(--pp-nav-active-bg)",
+                                }}
                             >
-                                <GraduationCap size={18} style={{color: "#15372C"}}/>
+                                <GraduationCap size={20} style={{color: "var(--pp-blue)"}}/>
                             </div>
                             <div>
                                 <h3
-                                    className="text-lg font-semibold mb-0.5"
-                                    style={{color: "#1A1A1A"}}
+                                    className="mb-0.5"
+                                    style={{color: "var(--pp-text)", fontSize: "18px", fontWeight: 700}}
                                 >
                                     {entry.degree}
                                 </h3>
-                                <p
-                                    className="text-sm mb-1"
-                                    style={{color: "#028561", fontWeight: 500}}
-                                >
+                                <p style={{color: "var(--pp-blue)", fontSize: "15px", fontWeight: 600}}>
                                     {entry.institute}
                                 </p>
                                 <p
-                                    className="text-xs uppercase tracking-widest mb-2"
-                                    style={{color: "#aaa"}}
+                                    className="uppercase tracking-widest mt-1 mb-2"
+                                    style={{color: "var(--pp-muted)", fontSize: "13px", fontWeight: 600}}
                                 >
                                     {entry.meta}
                                 </p>
                                 {entry.note && (
-                                    <p
-                                        className="text-sm leading-relaxed"
-                                        style={{color: "#777", lineHeight: "1.7", fontSize: "14px"}}
-                                    >
+                                    <p style={{color: "var(--pp-body)", fontSize: "15px", lineHeight: 1.7}}>
                                         {entry.note}
                                     </p>
                                 )}

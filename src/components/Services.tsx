@@ -41,52 +41,41 @@ const Services = () => {
     ];
 
     return (
-        <section id="services" className="py-24" style={{backgroundColor: "#FAF9F6", textAlign: "justify"}}>
-            <div className="container mx-auto px-6" style={{maxWidth: "1100px"}}>
+        <section
+            id="services"
+            className="px-5 md:px-10 py-12 md:py-16"
+            style={{scrollMarginTop: "80px"}}
+        >
+            {/* Heading */}
+            <h2
+                className="mb-8"
+                style={{color: "var(--pp-text)", fontSize: "clamp(28px, 4vw, 38px)", fontWeight: 800}}
+            >
+                Services
+            </h2>
 
-                {/* Eyebrow + Heading */}
-                <div className="mb-16" style={{textAlign: "justify"}}>
-                    <p
-                        className="text-xs uppercase tracking-widest font-medium mb-3"
-                        style={{color: "#999"}}
-                    >
-
-                    </p>
-                    <h2
-                        className="text-4xl md:text-5xl font-bold"
-                        style={{color: "#1A1A1A"}}
-                    >
-                        Services
-                    </h2>
-                </div>
-
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 "
-                     style={{color: "#3A3A3A", lineHeight: "1.85", textAlign: "justify"}}>
-                    {services.map((service, index) => (
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {services.map((service, index) => (
+                    <div key={index} className="pp-card flex flex-col">
                         <div
-                            key={index}
-                            className="bg-white p-7 border transition-colors duration-150"
+                            className="flex items-center justify-center mb-4"
                             style={{
-                                borderColor: "rgba(21,55,44,0.12)",
-                                borderRadius: "8px",
-                            }}
-                            onMouseEnter={e => {
-                                (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(21,55,44,0.35)";
-                            }}
-                            onMouseLeave={e => {
-                                (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(21,55,44,0.12)";
+                                width: "44px",
+                                height: "44px",
+                                borderRadius: "12px",
+                                backgroundColor: "var(--pp-nav-active-bg)",
                             }}
                         >
-                            <service.icon size={22} className="mb-5" style={{color: "#15372C"}}/>
-                            <h3 className="font-semibold text-base mb-3" style={{color: "#1A1A1A"}}>
-                                {service.title}
-                            </h3>
-                            <p className="text-sm leading-relaxed" style={{color: "#666", lineHeight: "1.7"}}>
-                                {service.description}
-                            </p>
+                            <service.icon size={22} style={{color: "var(--pp-blue)"}}/>
                         </div>
-                    ))}
-                </div>
+                        <h3 className="mb-2" style={{color: "var(--pp-text)", fontSize: "18px", fontWeight: 700}}>
+                            {service.title}
+                        </h3>
+                        <p style={{color: "var(--pp-body)", fontSize: "15px", lineHeight: 1.7, textAlign: "justify"}}>
+                            {service.description}
+                        </p>
+                    </div>
+                ))}
             </div>
         </section>
     );

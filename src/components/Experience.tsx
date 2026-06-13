@@ -1,3 +1,5 @@
+import {ReactNode} from "react";
+
 const Experience = () => {
     const fullTimeAchievements = [
         "Built a complete IAM service from scratch - JWT, RBAC, MFA, and account security - as the sole engineer owning the entire identity layer.",
@@ -17,136 +19,94 @@ const Experience = () => {
         "Implemented group-based access control for multi-tenant workflows.",
     ];
 
+    const Bullet = ({children}: { children: ReactNode }) => (
+        <li className="flex gap-3 items-start">
+            <span
+                className="flex-shrink-0 mt-[9px] w-1.5 h-1.5 rounded-full"
+                style={{backgroundColor: "var(--pp-blue)"}}
+            />
+            <span style={{color: "var(--pp-body)", fontSize: "16px", lineHeight: 1.7}}>
+                {children}
+            </span>
+        </li>
+    );
+
     return (
-        <section id="experience" className="py-24 bg-secondary/40">
-            <div className="container mx-auto px-6" style={{maxWidth: "1100px"}}>
+        <section
+            id="experience"
+            className="px-5 md:px-10 py-12 md:py-16"
+            style={{scrollMarginTop: "80px"}}
+        >
+            {/* Heading */}
+            <h2
+                className="mb-8"
+                style={{color: "var(--pp-text)", fontSize: "clamp(28px, 4vw, 38px)", fontWeight: 800}}
+            >
+                Professional Experience
+            </h2>
 
-                {/* Eyebrow + Heading */}
-                <div className="mb-16">
-                    <p
-                        className="text-xs uppercase tracking-widest font-medium mb-3"
-                        style={{color: "#999"}}
-                    >
+            <div className="space-y-5">
 
+                {/* Full-time entry */}
+                <div className="pp-card" style={{padding: "28px"}}>
+                    {/* Role + company */}
+                    <div className="flex flex-wrap items-baseline gap-x-3 mb-1">
+                        <h3 style={{color: "var(--pp-text)", fontSize: "20px", fontWeight: 700}}>
+                            Software Engineer
+                        </h3>
+                        <span style={{color: "var(--pp-blue)", fontSize: "16px", fontWeight: 600}}>
+                            Maya Data Privacy
+                        </span>
+                    </div>
+
+                    {/* Clarification line */}
+                    <p className="italic mb-3" style={{color: "var(--pp-muted)", fontSize: "14px"}}>
+                        Individual Contributor as Developer · Leader as Scrum Master
                     </p>
-                    <h2
-                        className="text-4xl md:text-5xl font-bold"
-                        style={{color: "#1A1A1A"}}
-                    >
-                        Professional Experience
-                    </h2>
-                </div>
 
-                {/* Timeline */}
-                <div className="max-w-3xl">
+                    <p className="mb-4" style={{color: "var(--pp-muted)", fontSize: "14px", fontWeight: 600}}>
+                        Apr 2024 – Present
+                    </p>
 
-                    {/* Full-time entry */}
-                    <div className="relative pl-8 pb-14">
-                        {/* Connector */}
-                        <div
-                            className="absolute top-3 bottom-0 w-px"
-                            style={{left: "5px", backgroundColor: "rgba(21,55,44,0.18)"}}
-                        />
-                        {/* Dot */}
-                        <div
-                            className="absolute w-[11px] h-[11px] rounded-full border-2 bg-white"
-                            style={{top: "6px", left: "0", borderColor: "#15372C"}}
-                        />
-
-                        {/* Role + company */}
-                        <div className="flex flex-wrap items-baseline gap-x-3 mb-1">
-                            <h3 className="text-xl font-bold" style={{color: "#1A1A1A"}}>
-                                Software Engineer
-                            </h3>
-                            <span className="text-base font-medium" style={{color: "#028561"}}>
-                                Maya Data Privacy
+                    {/* Badges */}
+                    <div className="flex flex-wrap gap-2 mb-6">
+                        {["Software Engineer", "Scrum Master"].map(badge => (
+                            <span key={badge} className="pp-chip pp-chip-blue" style={{fontSize: "13px", padding: "6px 14px"}}>
+                                {badge}
                             </span>
-                        </div>
-
-                        {/* Clarification line */}
-                        <p className="text-sm italic mb-3" style={{color: "#777"}}>
-                            Individual Contributor as Developer · Leader as Scrum Master
-                        </p>
-
-                        <p className="text-sm mb-4" style={{color: "#888"}}>
-                            Apr 2024 – Present
-                        </p>
-
-                        {/* Badges */}
-                        <div className="flex flex-wrap gap-2 mb-7">
-                            {["Software Engineer", "Scrum Master"].map(badge => (
-                                <span
-                                    key={badge}
-                                    className="text-xs font-medium px-3 py-1"
-                                    style={{
-                                        backgroundColor: "rgba(21,55,44,0.08)",
-                                        color: "#15372C",
-                                        borderRadius: "6px",
-                                    }}
-                                >
-                                    {badge}
-                                </span>
-                            ))}
-                        </div>
-
-                        {/* Achievements */}
-                        <ul className="space-y-4">
-                            {fullTimeAchievements.map((item, i) => (
-                                <li key={i} className="flex gap-3 items-start">
-                                    <span
-                                        className="flex-shrink-0 mt-[9px] w-1.5 h-1.5 rounded-full"
-                                        style={{backgroundColor: "#028561"}}
-                                    />
-                                    <span
-                                        className="text-base leading-relaxed"
-                                        style={{color: "#3A3A3A", lineHeight: "1.75"}}
-                                    >
-                                        {item}
-                                    </span>
-                                </li>
-                            ))}
-                        </ul>
+                        ))}
                     </div>
 
-                    {/* Intern sub-entry */}
-                    <div className="relative pl-8">
-                        <div
-                            className="absolute w-[11px] h-[11px] rounded-full border-2 bg-white"
-                            style={{top: "6px", left: "0", borderColor: "rgba(21,55,44,0.35)"}}
-                        />
+                    {/* Achievements */}
+                    <ul className="space-y-3.5">
+                        {fullTimeAchievements.map((item, i) => (
+                            <Bullet key={i}>{item}</Bullet>
+                        ))}
+                    </ul>
+                </div>
 
-                        <div className="flex flex-wrap items-baseline gap-x-3 mb-1">
-                            <h3 className="text-xl font-bold" style={{color: "#1A1A1A"}}>
-                                Software Engineer Intern
-                            </h3>
-                            <span className="text-sm font-medium" style={{color: "#028561"}}>
-                                Maya Data Privacy
-                            </span>
-                        </div>
-
-                        <p className="text-sm mb-5" style={{color: "#aaa"}}>
-                            Dec 2023 – Mar 2024
-                        </p>
-
-                        <ul className="space-y-4">
-                            {internAchievements.map((item, i) => (
-                                <li key={i} className="flex gap-3 items-start">
-                                       <span
-                                           className="flex-shrink-0 mt-[9px] w-1.5 h-1.5 rounded-full"
-                                           style={{backgroundColor: "#028561"}}
-                                       />
-                                    <span
-                                        className="text-base leading-relaxed"
-                                        style={{color: "#555", lineHeight: "1.75"}}
-                                    >
-                                        {item}
-                                    </span>
-                                </li>
-                            ))}
-                        </ul>
+                {/* Intern entry */}
+                <div className="pp-card" style={{padding: "28px"}}>
+                    <div className="flex flex-wrap items-baseline gap-x-3 mb-1">
+                        <h3 style={{color: "var(--pp-text)", fontSize: "20px", fontWeight: 700}}>
+                            Software Engineer Intern
+                        </h3>
+                        <span style={{color: "var(--pp-blue)", fontSize: "15px", fontWeight: 600}}>
+                            Maya Data Privacy
+                        </span>
                     </div>
 
+                    <p className="mb-5" style={{color: "var(--pp-muted)", fontSize: "14px", fontWeight: 600}}>
+                        Dec 2023 – Mar 2024
+                    </p>
+
+                    <ul className="space-y-3.5">
+                        {internAchievements.map((item, i) => (
+                            <Bullet key={i}>{item}</Bullet>
+                        ))}
+                    </ul>
                 </div>
+
             </div>
         </section>
     );

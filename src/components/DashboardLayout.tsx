@@ -1,0 +1,288 @@
+import {ReactNode, useEffect, useState} from "react";
+import {
+    Bell,
+    Briefcase,
+    Code2,
+    GraduationCap,
+    Home,
+    Layers,
+    Mail,
+    Menu,
+    User,
+    Wrench,
+    X,
+} from "lucide-react";
+
+const RESUME_URL =
+    "https://drive.google.com/file/d/1XsD4Zm-YxP-jUMyoA1Iwd2bzGHlhEba7/view?usp=drive_link";
+
+const GITHUB_URL = "https://github.com/vishwajeet-singhh";
+
+const navItems = [
+    {id: "home", label: "Home", icon: Home},
+    {id: "about", label: "About", icon: User},
+    {id: "skills", label: "Skills", icon: Layers},
+    {id: "experience", label: "Experience", icon: Briefcase},
+    {id: "services", label: "Services", icon: Wrench},
+    {id: "education", label: "Education", icon: GraduationCap},
+    {id: "contact", label: "Contact", icon: Mail},
+];
+
+const Avatar = ({size = 40}: { size?: number }) => (
+    <div
+        className="flex items-center justify-center rounded-full flex-shrink-0"
+        style={{
+            width: size,
+            height: size,
+            backgroundColor: "var(--pp-text)",
+            color: "#fff",
+            fontWeight: 700,
+            fontSize: size * 0.4,
+            letterSpacing: "0.02em",
+        }}
+    >
+        VS
+    </div>
+);
+
+const DashboardLayout = ({children}: { children: ReactNode }) => {
+    const [activeSection, setActiveSection] = useState("home");
+    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+    // Scroll-spy: highlight the section currently in view.
+    useEffect(() => {
+        const sections = navItems
+            .map((item) => document.getElementById(item.id))
+            .filter((el): el is HTMLElement => Boolean(el));
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                const visible = entries
+                    .filter((e) => e.isIntersecting)
+                    .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+                if (visible[0]) {
+                    setActiveSection(visible[0].target.id);
+                }
+            },
+            {rootMargin: "-45% 0px -50% 0px", threshold: [0, 0.25, 0.5, 1]}
+        );
+
+        sections.forEach((el) => observer.observe(el));
+        return () => observer.disconnect();
+    }, []);
+
+    const scrollToSection = (id: string) => {
+        const el = document.getElementById(id);
+        if (el) {
+            el.scrollIntoView({behavior: "smooth"});
+            setActiveSection(id);
+            setIsDrawerOpen(false);
+        }
+    };
+
+    const activeLabel =
+        navItems.find((item) => item.id === activeSection)?.label ?? "Home";
+
+    const NavList = () => (
+        <nav className="flex flex-col gap-1">
+            {navItems.map((item) => {
+                const isActive = activeSection === item.id;
+                const Icon = item.icon;
+                return (
+                    <button
+                        key={item.id}
+                        onClick={() => scrollToSection(item.id)}
+                        className="flex items-center gap-3 w-full text-left transition-colors duration-150"
+                        style={{
+                            padding: "10px 14px",
+                            borderRadius: "10px",
+                            backgroundColor: isActive ? "var(--pp-nav-active-bg)" : "transparent",
+                            color: isActive ? "var(--pp-blue)" : "var(--pp-muted)",
+                            fontWeight: isActive ? 600 : 500,
+                            fontSize: "15px",
+                            border: "none",
+                            cursor: "pointer",
+                        }}
+                        onMouseEnter={(e) => {
+                            if (!isActive)
+                                (e.currentTarget as HTMLButtonElement).style.backgroundColor =
+                                    "#F2F4F7";
+                        }}
+                        onMouseLeave={(e) => {
+                            if (!isActive)
+                                (e.currentTarget as HTMLButtonElement).style.backgroundColor =
+                                    "transparent";
+                        }}
+                    >
+                        <Icon size={18}/>
+                        {item.label}
+                    </button>
+                );
+            })}
+        </nav>
+    );
+
+    const SidebarInner = () => (
+        <>
+            {/* Identity block */}
+            <div className="flex flex-col items-start gap-3 px-2">
+                <Avatar size={56}/>
+                <div>
+                    <div
+                        style={{
+                            color: "var(--pp-text)",
+                            fontWeight: 700,
+                            fontSize: "17px",
+                            lineHeight: 1.25,
+                            whiteSpace: "nowrap",
+                        }}
+                    >
+                        Vishwajeet Pratap Singh
+                    </div>
+                    <div
+                        style={{
+                            color: "var(--pp-muted)",
+                            fontWeight: 600,
+                            fontSize: "13px",
+                            marginTop: "2px",
+                        }}
+                    >
+                        Software Engineer · Backend
+                    </div>
+                </div>
+            </div>
+
+            {/* Resume CTA */}
+            <a
+                href={RESUME_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="pp-btn-primary"
+                style={{justifyContent: "center", width: "100%", marginTop: "20px"}}
+            >
+                Resume
+            </a>
+
+            {/* Nav */}
+            <div style={{marginTop: "24px"}}>
+                <NavList/>
+            </div>
+        </>
+    );
+
+    return (
+        <div style={{backgroundColor: "var(--pp-bg)", minHeight: "100vh"}}>
+            {/* ── Desktop sidebar ─────────────────────────────── */}
+            <aside
+                className="hidden lg:flex flex-col fixed top-0 left-0 bottom-0 z-40"
+                style={{
+                    width: "280px",
+                    backgroundColor: "var(--pp-card)",
+                    borderRight: "1px solid var(--pp-border)",
+                    padding: "24px 16px",
+                    overflowY: "auto",
+                }}
+            >
+                <SidebarInner/>
+            </aside>
+
+            {/* ── Mobile drawer ───────────────────────────────── */}
+            {isDrawerOpen && (
+                <div className="lg:hidden">
+                    <div
+                        className="fixed inset-0 z-40"
+                        style={{backgroundColor: "rgba(10,10,10,0.4)"}}
+                        onClick={() => setIsDrawerOpen(false)}
+                    />
+                    <aside
+                        className="fixed top-0 left-0 bottom-0 z-50 flex flex-col"
+                        style={{
+                            width: "260px",
+                            backgroundColor: "var(--pp-card)",
+                            borderRight: "1px solid var(--pp-border)",
+                            padding: "24px 16px",
+                            overflowY: "auto",
+                        }}
+                    >
+                        <button
+                            onClick={() => setIsDrawerOpen(false)}
+                            className="self-end p-1 mb-2"
+                            style={{color: "var(--pp-muted)", border: "none", background: "none", cursor: "pointer"}}
+                            aria-label="Close menu"
+                        >
+                            <X size={22}/>
+                        </button>
+                        <SidebarInner/>
+                    </aside>
+                </div>
+            )}
+
+            {/* ── Main column ─────────────────────────────────── */}
+            <div className="lg:ml-[280px]">
+                {/* Top bar */}
+                <header
+                    className="sticky top-0 z-30 flex items-center justify-between"
+                    style={{
+                        height: "64px",
+                        backgroundColor: "var(--pp-card)",
+                        borderBottom: "1px solid var(--pp-border)",
+                        padding: "0 20px",
+                    }}
+                >
+                    <div className="flex items-center gap-3">
+                        <button
+                            className="lg:hidden p-1"
+                            style={{color: "var(--pp-text)", border: "none", background: "none", cursor: "pointer"}}
+                            onClick={() => setIsDrawerOpen(true)}
+                            aria-label="Open menu"
+                        >
+                            <Menu size={22}/>
+                        </button>
+                        <span
+                            className="hidden lg:inline"
+                            style={{color: "var(--pp-text)", fontWeight: 700, fontSize: "16px"}}
+                        >
+                            {activeLabel}
+                        </span>
+                        <span
+                            className="lg:hidden"
+                            style={{color: "var(--pp-text)", fontWeight: 700, fontSize: "15px"}}
+                        >
+                            Vishwajeet Pratap Singh
+                        </span>
+                    </div>
+
+                    <div className="flex items-center gap-4">
+                        <a
+                            href={GITHUB_URL}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title="GitHub"
+                            style={{color: "var(--pp-muted)"}}
+                            className="transition-colors duration-150 hover:text-[var(--pp-blue)]"
+                        >
+                            <Code2 size={20}/>
+                        </a>
+                        <span style={{color: "var(--pp-muted)"}} title="Notifications">
+                            <Bell size={20}/>
+                        </span>
+                        <Avatar size={32}/>
+                    </div>
+                </header>
+
+                {/* Content */}
+                <main
+                    className="mx-auto"
+                    style={{maxWidth: "980px", width: "100%"}}
+                >
+                    {children}
+                </main>
+            </div>
+        </div>
+    );
+};
+
+export default DashboardLayout;
+
+
+//claude --resume a2918e8d-87d6-4fad-86d5-3ee0c7eeb31b

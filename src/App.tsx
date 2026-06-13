@@ -26,8 +26,8 @@ const App = () => (
             </BrowserRouter>
 
             {/* 👇 Add your footer here for transparency */}
-            <footer className="text-center py-4 border-t border-border">
-                <p className="text-[10px] text-muted-foreground">
+            <footer className="text-center py-4 border-t border-border lg:ml-[280px]">
+                <p className="text-[13px] text-muted-foreground px-5">
                     This site collects minimal, non-personal technical data (e.g., country and device type) solely for
                     analytics and operational visibility. No personal or sensitive information is stored or shared.
                 </p>
