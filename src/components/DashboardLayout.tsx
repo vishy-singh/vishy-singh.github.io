@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 
 const RESUME_URL =
-    "https://drive.google.com/file/d/1XsD4Zm-YxP-jUMyoA1Iwd2bzGHlhEba7/view?usp=drive_link";
+    "https://drive.google.com/file/d/1XsD4Zm-YxP-jUMyoA1Iwd2bzGHlhEba7";
 
 const GITHUB_URL = "https://github.com/vishwajeet-singhh";
 

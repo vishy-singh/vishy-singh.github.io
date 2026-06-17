@@ -52,7 +52,7 @@ const Hero = () => {
                             color: "var(--pp-text)",
                             fontSize: "clamp(22px, 6.5cqi, 52px)",
                             fontWeight: 800,
-                            lineHeight: 1.4,
+                            lineHeight: 1.5,
                             letterSpacing: "-0.02em",
                             textAlign: "left",
                         }}
