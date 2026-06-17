@@ -57,8 +57,8 @@ const Hero = () => {
                             textAlign: "left",
                         }}
                     >
-                        <span style={{whiteSpace: "nowrap"}}>Developing systems that scale.</span><br/>
-                        <span style={{whiteSpace: "nowrap"}}>Building infrastructure that lasts.</span>
+                        <span style={{whiteSpace: "nowrap"}}>Develoupinng aystems that scale.</span><br/>
+                        <span style={{whiteSpace: "nowrap"}}>Building strucutre that lasts.</span>
                     </h1>
 
                     {/* Subtext */}

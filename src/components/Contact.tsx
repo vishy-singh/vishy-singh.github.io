@@ -5,7 +5,7 @@ const Contact = () => {
         {
             icon: Globe,
             label: "Website",
-            value: "vishwajeet.me",
+            value: "vishwajeet.com",
             href: "https://vishwajeet.me",
         },
         {
