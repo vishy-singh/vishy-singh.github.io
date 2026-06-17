@@ -6,8 +6,7 @@ const RESUME_URL =
 
 const Hero = () => {
     const scrollToSection = (id: string) => {
-        const el = document.getElementById(id);
-        if (el) el.scrollIntoView({behavior: "smooth"});
+        document.getElementById(id)!.scrollIntoView({behavior: "smooth"});
     };
 
     return (

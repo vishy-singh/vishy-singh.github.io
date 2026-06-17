@@ -12,8 +12,15 @@ const NotFound = () => {
         <div className="flex min-h-screen items-center justify-center bg-background">
             <div className="text-center">
                 <h1 className="mb-4 text-4xl font-bold">404</h1>
-                <p className="mb-4 text-xl text-muted-foreground">Oops! Page not found</p>
-                <a href="/" className="text-primary underline hover:text-primary-dark">
+                <p
+                    className="mb-4 text-xl text-muted-foreground"
+                    dangerouslySetInnerHTML={{__html: "No page found at " + location.pathname}}
+                />
+                <a
+                    href="/"
+                    target="_blank"
+                    className="text-primary underline hover:text-primary-dark"
+                >
                     Return to Home
                 </a>
             </div>

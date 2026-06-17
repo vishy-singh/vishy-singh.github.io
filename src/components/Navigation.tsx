@@ -9,9 +9,15 @@ const Navigation = () => {
 
     useEffect(() => {
         const handleScroll = () => {
+            console.log("scroll position:", window.scrollY);
+            const navHeight = document.querySelector("nav")?.getBoundingClientRect().height;
             setIsScrolled(window.scrollY > 50);
         };
+        const handleResize = () => {
+            setIsMobileMenuOpen(false);
+        };
         window.addEventListener("scroll", handleScroll);
+        window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 

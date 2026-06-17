@@ -1,4 +1,5 @@
 import {Github, Globe, Linkedin, Mail} from "lucide-react";
+import {track} from "@/lib/analytics";
 
 const Contact = () => {
     const contactLinks = [
@@ -85,6 +86,7 @@ const Contact = () => {
                     {contactLinks.map((item, i) => (
                         <a
                             key={i}
+                            onClick={() => track("contact_click", {label: item.label})}
                             href={item.href}
                             target={item.href.startsWith("http") ? "_blank" : undefined}
                             rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}

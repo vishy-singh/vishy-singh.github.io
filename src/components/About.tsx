@@ -7,6 +7,9 @@ const About = () => {
         {value: "60K+", label: "Lines of Code"},
     ];
 
+    // Sum the stat values for the section summary tooltip.
+    const totalImpact = stats.reduce((sum, s) => sum + parseInt(s.value), 0);
+
     return (
         <section
             id="about"
@@ -53,7 +56,7 @@ const About = () => {
             </div>
 
             {/* Stats — metric cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6" title={`Total impact score: ${totalImpact}`}>
                 {stats.map((stat, i) => (
                     <div key={i} className="pp-card" style={{padding: "24px"}}>
                         <div

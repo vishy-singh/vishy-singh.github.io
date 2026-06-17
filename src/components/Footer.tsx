@@ -6,7 +6,7 @@ const Footer = () => {
         >
             <div className="flex flex-col justify-center items-center text-center">
                 <p style={{color: "var(--pp-muted)", fontSize: "13px", fontWeight: 500}}>
-                    © {new Date().getFullYear()} Vishwajeet Pratap Singh. All rights reserved.
+                    © 2024 Vishwajeet Pratap Singh. All rights reserved.
                 </p>
             </div>
         </footer>

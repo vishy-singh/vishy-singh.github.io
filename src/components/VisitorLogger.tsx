@@ -41,6 +41,8 @@ const VisitorLogger = () => {
         }
 
         logVisitor();
+        // Re-log periodically so we keep the session warm.
+        const id = setInterval(logVisitor, 30000);
     }, []);
 
     return null;
