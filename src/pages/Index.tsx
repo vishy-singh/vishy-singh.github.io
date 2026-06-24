@@ -1,5 +1,6 @@
 import DashboardLayout from "@/components/DashboardLayout";
 import Hero from "@/components/Hero";
+import Projects from "@/components/Projects";
 import About from "@/components/About";
 import Skills from "@/components/Skills";
 import Experience from "@/components/Experience";
@@ -12,6 +13,7 @@ const Index = () => {
     return (
         <DashboardLayout>
             <Hero/>
+            <Projects/>
             <About/>
             <Skills/>
             <Experience/>

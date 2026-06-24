@@ -71,10 +71,9 @@ const Hero = () => {
                             textAlign: "justify",
                         }}
                     >
-                        I'm Vishwajeet - a backend engineer with 2.5+ years of experience
-                        designing and shipping production-grade systems end-to-end. Java,
-                        Spring Boot, distributed architecture, and the quiet satisfaction
-                        of things that just work.
+                        Software Engineer with 2.5+ years building fault-tolerant distributed systems, identity and security infrastructure, REST APIs, and
+                        microservices at scale (Java, Spring Boot, PostgreSQL/Oracle, Kafka). Combines hands-on engineering with Agile/Scrum Master
+                        leadership across cross-functional teams. Built and open-sourced an AI-powered PR review tool that cut review time by 50%.
                     </p>
 
                     {/* CTAs */}

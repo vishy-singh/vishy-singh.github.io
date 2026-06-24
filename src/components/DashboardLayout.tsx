@@ -3,6 +3,7 @@ import {
     Bell,
     Briefcase,
     Code2,
+    GitPullRequest,
     GraduationCap,
     Home,
     Layers,
@@ -20,6 +21,7 @@ const GITHUB_URL = "https://github.com/vishwajeet-singhh";
 
 const navItems = [
     {id: "home", label: "Home", icon: Home},
+    {id: "projects", label: "Projects", icon: GitPullRequest},
     {id: "about", label: "About", icon: User},
     {id: "skills", label: "Skills", icon: Layers},
     {id: "experience", label: "Experience", icon: Briefcase},

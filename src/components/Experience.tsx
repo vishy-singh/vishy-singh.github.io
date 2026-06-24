@@ -2,21 +2,22 @@ import {ReactNode} from "react";
 
 const Experience = () => {
     const fullTimeAchievements = [
-        "Built a complete IAM service from scratch - JWT, RBAC, MFA, and account security - as the sole engineer owning the entire identity layer.",
-        "Cut schema analysis time from 48–60 hours to ~2–3 hours by building a concurrent schema intelligence engine in Java.",
-        "Automated the full trial-to-billing lifecycle for API key access - eliminated manual billing tracking entirely.",
-        "Worked with Apache Kafka for async event-driven workflows and Redis for caching - improving throughput and cutting response latency across multiple services.",
-        "Led AWS → GCP cloud migration - containerised microservices with Docker, provisioned VMs, and wired service connectivity across sandbox and prod.",
-        "Designed a digitally signed on-prem licensing system with gateway-level validation, automated renewal and onboarding flows.",
-        "Built a configurable data transformation pipeline with pluggable rule engine and concurrent processing for large-scale client data operations.",
-        "Introduced Hikari CP connection pooling - cut connection errors and timeout failures in production.",
+        "Owned end-to-end feature delivery as an individual contributor while simultaneously serving as Scrum Master and tester across a ~20-person product team spanning 5 functions (UI, AI, Backend, Product, Testing) - holding three roles at once, two years into my career.",
+        "Integrated my own open-sourced tool, Helix, for automated GitHub pull request review - reducing review time by 50% while catching issues that are difficult or impossible for a human reviewer to consistently spot.",
+        "Designed and built a fault-tolerant state-management feature for long-running bulk operations across multiple databases (PostgreSQL, Oracle, SAP HANA), using a crash-safe journaling pattern for automatic recovery from mid-process crashes - and cut bulk insert time by ~50% by disabling triggers during writes.",
+        "Delivered end-to-end across two Spring Boot microservices (Kafka/Redis) with a tenant-configurable REST setting, cross-database SQL handling, and concurrency-safe resource management in a Spring Batch pipeline - validated with unit and Testcontainers tests.",
+        "Owned the entire identity layer as sole engineer, shipping a production IAM service from scratch - auth flows, JWT, RBAC, MFA, OAuth2, and account security - now securing access for 500+ users across B2B tenants deployed on-premises.",
+        "Cut a 48–60 hr workflow pipeline to ~2–3 hr by parallelising table processing 25-at-a-time across 100k-table datasets and pushing filtering down to the database layer - so only a fraction of the data ever reached the application instead of the full set.",
+        " Automated the full trial-to-billing lifecycle for API key access - eliminated manual billing tracking entirely.",
         "Designed automated backup and recovery workflows for critical services.",
-        "Ran Scrum ceremonies - sprint planning, backlog refinement, retrospectives, and stakeholder updates - as Scrum Master for a distributed team, while delivering all engineering work above as an individual contributor.",
+        "Designed a digitally signed on-prem licensing system with gateway-level validation, automated renewal and onboarding flows.",
+        "Contributed to the AWS → GCP infrastructure migration, containerising services with Docker and managing secrets and connectivity across environments.",
+        "Optimised multi-tenant database connection pooling and built the on-premises licensing system.",
     ];
 
     const internAchievements = [
-        "Built a Python-based data classification utility for automated schema profiling.",
-        "Implemented group-based access control for multi-tenant workflows.",
+        "Built a Python-based data classification utility that samples field values and applies configurable detection logic to identify sensitive data types at scale, powering automated data profiling.",
+        "Implemented group-based access control logic to enforce data consistency boundaries across multi-tenant workflows, hardening the authorisation model ahead of production rollout.",
     ];
 
     const Bullet = ({children}: { children: ReactNode }) => (
@@ -61,16 +62,16 @@ const Experience = () => {
 
                     {/* Clarification line */}
                     <p className="italic mb-3" style={{color: "var(--pp-muted)", fontSize: "14px"}}>
-                        Individual Contributor as Developer · Leader as Scrum Master
+                        Three roles at once · Developer · Scrum Master · Tester
                     </p>
 
                     <p className="mb-4" style={{color: "var(--pp-muted)", fontSize: "14px", fontWeight: 600}}>
-                        Apr 2024 – Present
+                        Jan 2024 – Present
                     </p>
 
                     {/* Badges */}
                     <div className="flex flex-wrap gap-2 mb-6">
-                        {["Software Engineer", "Scrum Master"].map(badge => (
+                        {["Software Engineer", "Scrum Master", "Tester"].map(badge => (
                             <span key={badge} className="pp-chip pp-chip-blue" style={{fontSize: "13px", padding: "6px 14px"}}>
                                 {badge}
                             </span>
@@ -96,8 +97,12 @@ const Experience = () => {
                         </span>
                     </div>
 
+                    <p className="italic mb-3" style={{color: "var(--pp-muted)", fontSize: "14px"}}>
+                        Converted to full-time
+                    </p>
+
                     <p className="mb-5" style={{color: "var(--pp-muted)", fontSize: "14px", fontWeight: 600}}>
-                        Dec 2023 – Mar 2024
+                        Dec 2023
                     </p>
 
                     <ul className="space-y-3.5">

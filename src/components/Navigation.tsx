@@ -22,7 +22,7 @@ const Navigation = () => {
         {name: "Skills", href: "#skills"},
         {name: "Services", href: "#services"},
         {name: "Contact", href: "#contact"},
-        {name: "Resume", href: "https://drive.google.com/file/d/1XsD4Zm-YxP-jUMyoA1Iwd2bzGHlhEba7/view?usp=drive_link"}
+        {name: "Resume", href: "https://drive.google.com/file/d/1zdu-Cr772mH3U8AMBPDTvFojiuFG4gsj/view?usp=sharing"}
     ];
 
     const scrollToSection = (href: string) => {

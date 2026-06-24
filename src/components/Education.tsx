@@ -3,10 +3,10 @@ import {GraduationCap} from "lucide-react";
 const Education = () => {
     const entries = [
         {
-            degree: "B.Tech — Computer Science",
+            degree: "B.Tech",
             institute: "Techno India University, Kolkata",
             meta: "2023  ·  CGPA 8.64 / 10",
-            note: "Strong foundation in Data Structures, OS, Networks, and DBMS — applied daily in production backend work.",
+            note: "",
         },
         {
             degree: "Java Full Stack Development",
