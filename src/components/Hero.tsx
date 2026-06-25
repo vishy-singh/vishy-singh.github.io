@@ -1,8 +1,6 @@
 import {ArrowRight, Download, Github, Globe, Linkedin, Mail} from "lucide-react";
 import profileImage from "@/assets/profile.jpg";
-
-const RESUME_URL =
-    "https://drive.google.com/file/d/1zdu-Cr772mH3U8AMBPDTvFojiuFG4gsj/view?usp=drive_link";
+import {RESUME_URL} from "@/lib/resume";
 
 const Hero = () => {
     const scrollToSection = (id: string) => {

@@ -13,9 +13,7 @@ import {
     Wrench,
     X,
 } from "lucide-react";
-
-const RESUME_URL =
-    "https://drive.google.com/file/d/1XsD4Zm-YxP-jUMyoA1Iwd2bzGHlhEba7/view?usp=drive_link";
+import {RESUME_URL} from "@/lib/resume";
 
 const GITHUB_URL = "https://github.com/vishwajeet-singhh";
 

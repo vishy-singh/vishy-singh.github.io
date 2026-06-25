@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import {Menu, User, X} from "lucide-react";
+import {RESUME_URL} from "@/lib/resume";
 
 const Navigation = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -22,7 +23,7 @@ const Navigation = () => {
         {name: "Skills", href: "#skills"},
         {name: "Services", href: "#services"},
         {name: "Contact", href: "#contact"},
-        {name: "Resume", href: "https://drive.google.com/file/d/1zdu-Cr772mH3U8AMBPDTvFojiuFG4gsj/view?usp=sharing"}
+        {name: "Resume", href: RESUME_URL}
     ];
 
     const scrollToSection = (href: string) => {
