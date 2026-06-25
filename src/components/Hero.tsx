@@ -2,7 +2,7 @@ import {ArrowRight, Download, Github, Globe, Linkedin, Mail} from "lucide-react"
 import profileImage from "@/assets/profile.jpg";
 
 const RESUME_URL =
-    "https://drive.google.com/file/d/1XsD4Zm-YxP-jUMyoA1Iwd2bzGHlhEba7/view?usp=drive_link";
+    "https://drive.google.com/file/d/1zdu-Cr772mH3U8AMBPDTvFojiuFG4gsj/view?usp=drive_link";
 
 const Hero = () => {
     const scrollToSection = (id: string) => {
