@@ -55,23 +55,32 @@ const Hero = () => {
                             textAlign: "left",
                         }}
                     >
-                        <span style={{whiteSpace: "nowrap"}}>Developing systems that scale.</span><br/>
-                        <span style={{whiteSpace: "nowrap"}}>Building infrastructure that lasts.</span>
+                        <span style={{whiteSpace: "nowrap"}}>I build backend systems</span>
+                        <br/>
+                        <span style={{whiteSpace: "nowrap"}}>that can't afford to break.</span>
                     </h1>
 
                     {/* Subtext */}
                     <p
+                        lang="en"
                         style={{
-                            color: "var(--pp-muted)",
-                            fontSize: "16px",
-                            lineHeight: 1.7,
-                            maxWidth: "540px",
+                            color: "var(--pp-heading)",
+                            fontSize: "17px",
+                            lineHeight: 1.75,
                             textAlign: "justify",
+                            maxWidth: "640px",
+                            hyphens: "auto",
+                            WebkitHyphens: "auto",
+                            msHyphens: "auto",
                         }}
                     >
-                        Software Engineer with 2.5+ years building fault-tolerant distributed systems, identity and security infrastructure, REST APIs, and
-                        microservices at scale (Java, Spring Boot, PostgreSQL/Oracle, Kafka). Combines hands-on engineering with Agile/Scrum Master
-                        leadership across cross-functional teams. Built and open-sourced an AI-powered PR review tool that cut review time by 50%.
+                        Software Engineer with 2.5+ years building fault-tolerant{" "}
+                        <span style={{ hyphens: "none", WebkitHyphens: "none", msHyphens: "none" }}>distributed</span>{" "}
+                        systems, identity and security infrastructure, and{" "}
+                        <span style={{ hyphens: "none", WebkitHyphens: "none", msHyphens: "none" }}>microservices</span>{" "}
+                        at scale (Java, Spring Boot, Kafka, PostgreSQL, Oracle). Built and open-sourced an
+                        AI-powered PR-review tool that cut review time in half, and pairs hands-on engineering
+                        with Scrum Master leadership across cross-functional teams.
                     </p>
 
                     {/* CTAs */}
@@ -134,7 +143,7 @@ const Hero = () => {
                         <img
                             src={profileImage}
                             alt="Vishwajeet Pratap Singh"
-                            className="w-full h-full object-cover object-center scale-[1.05]"
+                            className="w-full h-full object-cover object-center scale-[1.05] brightness-[1.075]"
                         />
                     </div>
                 </div>

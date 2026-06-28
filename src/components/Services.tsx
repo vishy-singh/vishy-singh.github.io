@@ -1,42 +1,30 @@
-import {Cloud, Code2, Database, Lock, Server, Zap} from "lucide-react";
+import {Server, Lock, Shield, Database} from "lucide-react";
 
 const Services = () => {
     const services = [
         {
             icon: Server,
-            title: "Backend System Design",
+            title: "Backend & Distributed Systems",
             description:
-                "Architect clean, maintainable backend systems in Java and Spring Boot - defining service boundaries, data models, and API contracts that hold up under real production load. I've built entire services from scratch, including IAM, billing, and data processing engines.",
-        },
-        {
-            icon: Database,
-            title: "Large-Scale Data Processing",
-            description:
-                "Build configurable pipelines for batch and concurrent data operations - with pluggable rule engines, automated trigger management, and support for diverse client schemas. Reduced schema analysis time from 48 hours to under 3 in production.",
-        },
-        {
-            icon: Zap,
-            title: "Performance & Scalability",
-            description:
-                "Diagnose bottlenecks in live systems and fix them - connection pooling with HikariCP, Redis caching layers, query optimisation, and concurrency improvements. Every optimisation I ship is measured against production before and after.",
+                "Architect clean, maintainable services in Java and Spring Boot - defining service boundaries, data models, and API contracts that hold up under real production load. I've built entire systems from scratch across a Kafka-based microservices architecture.",
         },
         {
             icon: Lock,
             title: "Identity & Access Management",
             description:
-                "Design and implement complete IAM systems - JWT-based auth, RBAC, MFA, digital signatures, and gateway-level validation. Built and own the entire identity layer at my current company.",
+                "Design and ship complete IAM systems from scratch - JWT auth, RBAC, MFA, OAuth2, and gateway-level validation. I own the entire identity layer at my company, now securing 500+ users across on-premises B2B deployments.",
         },
         {
-            icon: Cloud,
-            title: "Production Operations & Reliability",
+            icon: Shield,
+            title: "Fault Tolerance & Reliability",
             description:
-                "Support backend services through their full lifecycle - from deployment to incident response, RCA, log analysis, and recovery automation. Comfortable owning reliability in environments where downtime has real business consequences.",
+                "Build systems that survive failure instead of just avoiding it - crash-safe journaling for automatic mid-process recovery, plus incident response, RCA, and recovery automation. Comfortable owning reliability where downtime has real business consequences.",
         },
         {
-            icon: Code2,
-            title: "API & Platform Development",
+            icon: Database,
+            title: "Large-Scale Data Processing",
             description:
-                "Design REST APIs that are clean, versioned, and integration-ready - for frontend teams, third-party clients, and internal services. Also experienced in event-driven integration using Apache Kafka.",
+                "Build configurable pipelines for batch and concurrent data operations, with pluggable rule engines and support for diverse client schemas. Diagnose and fix bottlenecks at scale - cut one production workflow from 48 hours to under 3 hours.",
         },
     ];
 
@@ -54,11 +42,11 @@ const Services = () => {
                 Services
             </h2>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-4 ">
                 {services.map((service, index) => (
-                    <div key={index} className="pp-card flex flex-col">
+                    <div key={index} className="pp-card flex flex-col ">
                         <div
-                            className="flex items-center justify-center mb-4"
+                            className="flex items-center justify-center mb-4 mx-auto"
                             style={{
                                 width: "44px",
                                 height: "44px",
@@ -66,9 +54,10 @@ const Services = () => {
                                 backgroundColor: "var(--pp-nav-active-bg)",
                             }}
                         >
-                            <service.icon size={22} style={{color: "var(--pp-blue)"}}/>
+                            <service.icon size={22} style={{color: "var(--pp-blue)" }}/>
                         </div>
-                        <h3 className="mb-2" style={{color: "var(--pp-text)", fontSize: "18px", fontWeight: 700}}>
+                        <h3 className="mb-2"
+                            style={{color: "var(--pp-text)", fontSize: "18px", fontWeight: 700,   textAlign: "center",}}>
                             {service.title}
                         </h3>
                         <p style={{color: "var(--pp-body)", fontSize: "15px", lineHeight: 1.7, textAlign: "justify"}}>

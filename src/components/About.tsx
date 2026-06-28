@@ -1,10 +1,14 @@
 const About = () => {
     const stats = [
         {value: "2.5+", label: "Years Exp"},
-        {value: "4+", label: "Systems Built"},
-        {value: "3", label: "Databases"},
+        {value: "10+", label: "Microservices"},
+
         {value: "60+", label: "REST APIs"},
-        {value: "60K+", label: "Lines of Code"},
+
+        {value: "3", label: "Databases"},
+        {value: "10+", label: "Technologies"},
+        {value: "50%", label: "Faster PR Reviews"},
+
     ];
 
     return (
@@ -25,39 +29,37 @@ const About = () => {
             <div className="pp-card" style={{padding: "28px"}}>
                 <div className="space-y-5">
                     <p style={{color: "var(--pp-body)", fontSize: "16px", lineHeight: 1.7, textAlign: "justify"}}>
-                        I began as an intern but quickly grew into the lead engineer role, designing and building
-                        entire systems on my own-including IAM, billing engines, schema intelligence, licensing, and
-                        cloud infrastructure. Alongside my work as an individual contributor, I also took on the
-                        Scrum Master role, running sprint ceremonies, removing blockers, and keeping the team on
-                        track. This experience reinforced for me that great engineering is as much about clear
-                        communication as it is about technical skill.
+
+                        I build the backend systems that can't afford to break. I started as an intern and, within
+                        two years, grew into the lead engineer role - designing and shipping entire systems on my
+                        own: identity and access management, billing and licensing engines, sensitive-data
+                        classification, and cloud infrastructure. Owning systems end-to-end, alone, is what taught me
+                        how they actually work underneath the abstractions.
                     </p>
                     <p style={{color: "var(--pp-body)", fontSize: "16px", lineHeight: 1.7, textAlign: "justify"}}>
-                        I’m passionate about tackling challenging backend problems with real-world impact-whether
-                        it’s fintech systems handling money movements, distributed architectures where failures
-                        cascade, or high-scale APIs. These are the areas where I do my best work.
+                        I'm drawn to backend problems where correctness isn't negotiable - distributed architectures
+                        where a single failure cascades, identity layers where a bug is a breach, and data pipelines
+                        that have to stay consistent under load. That's why fintech is where I want to take this work
+                        next: it demands exactly the things I care about most - reliability, security, and
+                        financial-grade
+                        correctness where "mostly right" simply isn't good enough.
                     </p>
                     <p style={{color: "var(--pp-body)", fontSize: "16px", lineHeight: 1.7, textAlign: "justify"}}>
-                        I’m passionate about tackling challenging backend problems with real-world impact-whether
-                        it’s fintech systems handling money movements, distributed architectures where failures
-                        cascade, or high-scale APIs. These are the areas where I do my best work.
-                    </p>
-                    <p style={{color: "var(--pp-body)", fontSize: "16px", lineHeight: 1.7, textAlign: "justify"}}>
-                        I’m genuinely passionate about fintech and distributed systems. What really drives me is
-                        building backend systems that can handle financial transactions, process large volumes of
-                        data reliably, and stay resilient as they scale. As a backend engineer, I find the
-                        challenges of ensuring system reliability, performance, and fault tolerance the most
-                        exciting and rewarding to solve.
+                        Alongside writing code, I run Scrum for my team - sprint ceremonies, unblocking people,
+                        keeping delivery on track - which reinforced that great engineering is as much about clear
+                        communication as raw technical skill. Outside of work, I build and open-source tools,
+                        including Helix, an AI-powered PR reviewer that cut our review time in half. I'm always
+                        looking for harder systems problems to take on - ideally ones where money's on the line.
                     </p>
                 </div>
             </div>
 
-            {/* Stats — metric cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
+            {/* Stats - metric cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6 ">
                 {stats.map((stat, i) => (
-                    <div key={i} className="pp-card" style={{padding: "24px"}}>
+                    <div key={i} className="pp-card justify-items-center" style={{padding: "24px"}}>
                         <div
-                            className="leading-none"
+                            className="leading-none "
                             style={{color: "var(--pp-text)", fontSize: "40px", fontWeight: 800}}
                         >
                             {stat.value}

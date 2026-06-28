@@ -51,11 +51,24 @@ const Contact = () => {
                     Let's Build Something.
                 </h2>
 
-                {/* Subtext */}
-                <p
-                    className="mb-6"
-                    style={{color: "var(--pp-muted)", fontSize: "16px", lineHeight: 1.7, maxWidth: "480px"}}
-                >
+
+                    <p
+                        lang="en"
+                        className="mb-6"
+                        style={{
+
+
+                            color: "var(--pp-muted)",
+                            fontSize: "16px",
+                            lineHeight: 1.50,
+                            textAlign: "justify",
+                            maxWidth: "480px",
+                            hyphens: "auto",
+                            WebkitHyphens: "auto",
+                            msHyphens: "auto",
+                        }}
+                    >
+
                     I'm available for backend projects, freelance work, and full-time roles.
                     Especially interested in fintech and distributed systems.
                 </p>

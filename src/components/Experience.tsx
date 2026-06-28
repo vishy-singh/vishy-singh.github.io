@@ -2,17 +2,16 @@ import {ReactNode} from "react";
 
 const Experience = () => {
     const fullTimeAchievements = [
-        "Owned end-to-end feature delivery as an individual contributor while simultaneously serving as Scrum Master and tester across a ~20-person product team spanning 5 functions (UI, AI, Backend, Product, Testing) - holding three roles at once, two years into my career.",
-        "Integrated my own open-sourced tool, Helix, for automated GitHub pull request review - reducing review time by 50% while catching issues that are difficult or impossible for a human reviewer to consistently spot.",
-        "Designed and built a fault-tolerant state-management feature for long-running bulk operations across multiple databases (PostgreSQL, Oracle, SAP HANA), using a crash-safe journaling pattern for automatic recovery from mid-process crashes - and cut bulk insert time by ~50% by disabling triggers during writes.",
-        "Delivered end-to-end across two Spring Boot microservices (Kafka/Redis) with a tenant-configurable REST setting, cross-database SQL handling, and concurrency-safe resource management in a Spring Batch pipeline - validated with unit and Testcontainers tests.",
-        "Owned the entire identity layer as sole engineer, shipping a production IAM service from scratch - auth flows, JWT, RBAC, MFA, OAuth2, and account security - now securing access for 500+ users across B2B tenants deployed on-premises.",
-        "Cut a 48–60 hr workflow pipeline to ~2–3 hr by parallelising table processing 25-at-a-time across 100k-table datasets and pushing filtering down to the database layer - so only a fraction of the data ever reached the application instead of the full set.",
-        " Automated the full trial-to-billing lifecycle for API key access - eliminated manual billing tracking entirely.",
-        "Designed automated backup and recovery workflows for critical services.",
-        "Designed a digitally signed on-prem licensing system with gateway-level validation, automated renewal and onboarding flows.",
-        "Contributed to the AWS → GCP infrastructure migration, containerising services with Docker and managing secrets and connectivity across environments.",
-        "Optimised multi-tenant database connection pooling and built the on-premises licensing system.",
+        "Built the entire identity layer as sole engineer - shipping a production IAM service from scratch (auth flows, JWT, RBAC, MFA, OAuth2, account security) that now secures 500+ users across SaaS and on-premises B2B deployments.",
+        "Cut a 48–60 hr data-processing pipeline to ~2–3 hr (roughly 20x) by parallelising table processing 25-at-a-time across 100k+ table datasets and pushing filtering down to the database - so only a fraction of the data ever reached the application instead of the full set.",
+        "Designed a fault-tolerant state-management layer for long-running bulk operations across PostgreSQL, Oracle, and SAP HANA, using a crash-safe journaling pattern for automatic mid-process recovery - and cut bulk-insert time ~50% by disabling triggers during writes.",
+        "Integrated my own open-sourced tool, Helix, into the team's GitHub workflow for automated PR review - halving review turnaround while catching issues a human reviewer can't consistently spot.",
+        "Delivered end-to-end across two Spring Boot microservices (Kafka, Redis) with tenant-configurable REST settings, cross-database SQL handling, and concurrency-safe resource management in a Spring Batch pipeline - validated with JUnit, Mockito, and Testcontainers.",
+        "Automated the full trial-to-billing lifecycle for API-key access, eliminating manual billing tracking entirely.",
+        "Designed a digitally signed, on-premises licensing system with gateway-level validation and automated renewal and onboarding flows.",
+        "Contributed to the AWS → GCP infrastructure migration - containerising services with Docker and managing secrets and connectivity across environments.",
+        "Optimised multi-tenant database connection pooling and designed automated backup-and-recovery workflows for critical services.",
+        "Operated as individual contributor, Scrum Master, and tester simultaneously across a ~20-person product team spanning five functions (UI, AI, Backend, Product, Testing) - owning feature delivery as the team's core developer just two years into my career.",
     ];
 
     const internAchievements = [
@@ -72,7 +71,8 @@ const Experience = () => {
                     {/* Badges */}
                     <div className="flex flex-wrap gap-2 mb-6">
                         {["Software Engineer", "Scrum Master", "Tester"].map(badge => (
-                            <span key={badge} className="pp-chip pp-chip-blue" style={{fontSize: "13px", padding: "6px 14px"}}>
+                            <span key={badge} className="pp-chip pp-chip-blue"
+                                  style={{fontSize: "13px", padding: "6px 14px"}}>
                                 {badge}
                             </span>
                         ))}
