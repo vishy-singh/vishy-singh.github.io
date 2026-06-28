@@ -1,5 +1,5 @@
 import {ArrowRight, Download, Github, Globe, Linkedin, Mail} from "lucide-react";
-import profileImage from "@/assets/profile.jpeg";
+import profileImage from "@/assets/profile-dev.png";
 import {RESUME_URL} from "@/lib/resume";
 
 const Hero = () => {
@@ -134,7 +134,7 @@ const Hero = () => {
                         <img
                             src={profileImage}
                             alt="Vishwajeet Pratap Singh"
-                            className="w-full h-full object-cover object-center scale-[1.20]"
+                            className="w-full h-full object-cover object-center scale-[1.05]"
                         />
                     </div>
                 </div>
